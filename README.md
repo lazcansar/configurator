@@ -3,6 +3,9 @@
 🚀 Configurator Pages - JSON Register
 
 Bu proje NPM, Vite, VanillaJS ve SCSS teknolojisi kullanılarak yapılmış bir uygulamadır.
+![npm](https://img.shields.io/badge/npm-v6.14.4-blue)
+![license](https://img.shields.io/badge/license-MIT-green)
+
 
 ---
 
