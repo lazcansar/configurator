@@ -1,4 +1,86 @@
+$non-active-color: #A2A2A2;
+$active-color: #0E5653;
+$active-color-hover: #6D6C6C;
+
+body {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+}
 .header-step {
     background-color: #FBFBFB;
-    padding: 10px 0;
+    padding: 1rem 0;
+    font-size: 14px;
+
+    .header-step-logo {
+        img {
+            height: 2rem;
+        }
+    }
+
+    .header-step-number {
+
+        .line {
+            width: 2rem;
+            height: 1px;
+            margin-bottom: 1.5rem;
+            background-color: $non-active-color;
+        }
+
+        .header-step-number-item {
+            cursor: pointer;
+            display: inline-block;
+
+            &:hover {
+                .header-step-number-item-number {
+                    background-color: $active-color-hover;
+                    color: #fff;
+                }
+
+                .header-step-number-item-text {
+                    color: $active-color-hover;
+                }
+                .not-select {
+                    background-color: $non-active-color;
+                }
+            }
+
+
+            .header-step-number-item-number {
+                background-color: $active-color;
+                padding: 10px;
+                border-radius: 50%;
+                color: #fff;
+                width: 1.8rem;
+                height: 1.8rem;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 600;
+            }
+
+            .not-select {
+                background-color: transparent;
+                padding: 10px;
+                border: 2px solid $non-active-color;
+                border-radius: 50%;
+                color: $non-active-color;
+                width: 1.8rem;
+                height: 1.8rem;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 600;
+
+            }
+
+            .header-step-number-item-text {
+
+            }
+
+
+
+
+        }
+
+    }
 }

@@ -5,54 +5,60 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Configurator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   </head>
   <body>
   <section class="header-step">
-    <div class="container">
-      <div class="d-flex flex-wrap justify-content-between align-items-center">
+    <div class="container mx-auto">
+      <div class="row justify-content-between align-items-center">
 
-        <div class="header-step-logo">
+        <div class="col-md-2 header-step-logo ">
           <img src="https://packiro.com/assets/packiro/logo-with-text-small.svg" class="img-fluid">
         </div>
 
-        <div class="header-step-number d-flex align-items-center justify-content-between">
-          <div class="header-step-number-item">
+        <div class="col-md-8 header-step-number d-flex align-items-center justify-content-evenly">
+
+          <div class="header-step-number-item d-flex align-items-center flex-column">
             <div class="header-step-number-item-number">1</div>
-            <div class="header-step-number-item-text">Packaging form</div>
-          </div>
-          <div class="header-step-number-item">
-            <div class="header-step-number-item-number">2</div>
-            <div class="header-step-number-item-text">Material</div>
+            <div class="header-step-number-item-text mt-1">Packaging form</div>
           </div>
 
-          <div class="header-step-number-item">
+          <div class="header-step-number-item d-flex align-items-center flex-column">
+            <div class="header-step-number-item-number not-select">2</div>
+            <div class="header-step-number-item-text mt-1">Material</div>
+          </div>
+
+
+          <div class="header-step-number-item d-flex align-items-center flex-column">
             <div class="header-step-number-item-number">3</div>
-            <div class="header-step-number-item-text">Size</div>
+            <div class="header-step-number-item-text mt-1">Size</div>
           </div>
 
-          <div class="header-step-number-item">
+          <div class="header-step-number-item d-flex align-items-center flex-column">
             <div class="header-step-number-item-number">4</div>
-            <div class="header-step-number-item-text">Quantity</div>
+            <div class="header-step-number-item-text mt-1">Quantity</div>
           </div>
 
-          <div class="header-step-number-item">
+          <div class="header-step-number-item d-flex align-items-center flex-column">
             <div class="header-step-number-item-number">5</div>
-            <div class="header-step-number-item-text">Design</div>
+            <div class="header-step-number-item-text mt-1">Design</div>
           </div>
 
-          <div class="header-step-number-item">
+          <div class="header-step-number-item d-flex align-items-center flex-column">
             <div class="header-step-number-item-number">6</div>
-            <div class="header-step-number-item-text">Additions</div>
+            <div class="header-step-number-item-text mt-1">Additions</div>
           </div>
 
-          <div class="header-step-number-item">
+          <div class="header-step-number-item d-flex align-items-center flex-column">
             <div class="header-step-number-item-number">7</div>
-            <div class="header-step-number-item-text">Services</div>
+            <div class="header-step-number-item-text mt-1">Services</div>
           </div>
 
 
         </div>
-        <div class="header-step-price-area">
+        <div class="col-md-2 header-step-price-area">
           <div class="header-step-price-area-item">
             <div class="header-step-price-area-item-text">
               Provisional price:
@@ -62,6 +68,8 @@
             </div>
           </div>
         </div>
+
+
       </div>
     </div>
   </section>
