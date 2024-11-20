@@ -5,6 +5,7 @@ $button-background-color: #117F7D;
 $button-background-color-hover: #0E5653;
 $main-box-hover-color: #F8F8F8;
 $border-hover-color: #E0E0E0;
+$border-selected-color: #117F7D;
 
 body {
     font-family: "Montserrat", sans-serif;
@@ -136,10 +137,29 @@ body {
 
     // Main Content Box
     .main-box {
+        .selected {
+            outline: 2px solid $border-selected-color;
+            background-color: $main-box-hover-color;
+        }
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(0,0,0,0.2);
+            transform: scale(0);
+            animation: ripple-animation 1s linear;
+        }
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
         .main-box-item {
+            position: relative;
+            overflow: hidden;
             cursor: pointer;
             border: 1px solid $border-hover-color;
-            &:hover {
+            &:not(.selected):hover {
                 background-color: $main-box-hover-color;
                 outline: 2px solid $border-hover-color;
             }
