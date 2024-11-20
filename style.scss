@@ -1,86 +1,162 @@
 $non-active-color: #A2A2A2;
 $active-color: #0E5653;
 $active-color-hover: #6D6C6C;
+$button-background-color: #117F7D;
+$button-background-color-hover: #0E5653;
+$main-box-hover-color: #F8F8F8;
+$border-hover-color: #E0E0E0;
 
 body {
     font-family: "Montserrat", sans-serif;
     font-weight: 300;
-}
-.header-step {
-    background-color: #FBFBFB;
-    padding: 1rem 0;
-    font-size: 14px;
 
-    .header-step-logo {
-        img {
-            height: 2rem;
-        }
-    }
+    // Header Step Area
+    .header-step {
+        background-color: #FBFBFB;
+        padding: 1rem 0;
+        font-size: 14px;
 
-    .header-step-number {
-
-        .line {
-            width: 2rem;
-            height: 1px;
-            margin-bottom: 1.5rem;
-            background-color: $non-active-color;
+        .header-step-logo {
+            img {
+                height: 2rem;
+            }
         }
 
-        .header-step-number-item {
-            cursor: pointer;
-            display: inline-block;
+        .header-step-number {
 
-            &:hover {
+            .line {
+                width: 2rem;
+                height: 1px;
+                margin-bottom: 1.5rem;
+                background-color: $non-active-color;
+            }
+
+            .header-step-number-item {
+                cursor: pointer;
+                display: inline-block;
+
+                &:hover {
+                    .header-step-number-item-number {
+                        background-color: $active-color-hover;
+                        color: #fff;
+                    }
+
+                    .header-step-number-item-text {
+                        color: $active-color-hover;
+                    }
+                    .not-select {
+                        background-color: $non-active-color;
+                    }
+                }
+
+
                 .header-step-number-item-number {
-                    background-color: $active-color-hover;
+                    background-color: $active-color;
+                    padding: 10px;
+                    border-radius: 50%;
                     color: #fff;
+                    width: 1.8rem;
+                    height: 1.8rem;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: 600;
+                }
+
+                .not-select {
+                    background-color: transparent;
+                    padding: 10px;
+                    border: 2px solid $non-active-color;
+                    border-radius: 50%;
+                    color: $non-active-color;
+                    width: 1.8rem;
+                    height: 1.8rem;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: 600;
+
                 }
 
                 .header-step-number-item-text {
-                    color: $active-color-hover;
+
                 }
-                .not-select {
-                    background-color: $non-active-color;
-                }
-            }
 
-
-            .header-step-number-item-number {
-                background-color: $active-color;
-                padding: 10px;
-                border-radius: 50%;
-                color: #fff;
-                width: 1.8rem;
-                height: 1.8rem;
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                font-weight: 600;
-            }
-
-            .not-select {
-                background-color: transparent;
-                padding: 10px;
-                border: 2px solid $non-active-color;
-                border-radius: 50%;
-                color: $non-active-color;
-                width: 1.8rem;
-                height: 1.8rem;
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                font-weight: 600;
-
-            }
-
-            .header-step-number-item-text {
-
-            }
 
 
 
+            }
 
         }
+    }
 
+    // BreadCrumb Area
+    .breadcrumb {
+        font-size: .875rem;
+        a {
+            color: $active-color-hover;
+            text-decoration: none;
+            position: relative;
+            &:hover {
+                color: $active-color;
+            }
+            &::after {
+                content: '';
+                position: absolute;
+                border-bottom: 1px solid $active-color-hover;
+                height: 1px;
+                width: 9%;
+                left: 18px;
+                bottom: -3px;
+            }
+        }
+    }
+
+    // Main Content Area
+    .main-content {
+        .main-content-header {
+            .main-content-title {
+                color: $active-color;
+                font-weight: 600;
+                font-size: 2.5rem;
+            }
+
+            .main-content-button button {
+                background-color: $button-background-color;
+                color: #fff;
+                padding: 1rem 2rem;
+                font-weight: 400;
+                &:hover {
+                    background-color: $button-background-color-hover;
+                }
+            }
+        }
+
+    }
+
+    // Main Content Box
+    .main-box {
+        .main-box-item {
+            cursor: pointer;
+            border: 1px solid $border-hover-color;
+            &:hover {
+                background-color: $main-box-hover-color;
+                outline: 2px solid $border-hover-color;
+            }
+
+            .main-box-item-content {
+                .main-box-item-title {
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                }
+                .main-box-item-description {
+                    font-weight: 400;
+                }
+                .main-box-item-information {
+                    font-size: 12px;
+                }
+            }
+
+        }
     }
 }

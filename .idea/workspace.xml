@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="331bfada-1bf5-47cb-abd4-e8e13965b056" name="Changes" comment="first commit">
-      <change beforePath="$PROJECT_DIR$/configurator/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/configurator/counter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/configurator/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/configurator/javascript.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/configurator/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/configurator/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/configurator/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/configurator/public/vite.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/configurator/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/style.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +99,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1732048811652</updated>
-      <workItem from="1732048812746" duration="8409000" />
+      <workItem from="1732048812746" duration="8585000" />
+      <workItem from="1732129623825" duration="5002000" />
     </task>
     <task id="LOCAL-00001" summary="First Commit">
       <option name="closed" value="true" />
