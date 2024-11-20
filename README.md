@@ -2,7 +2,7 @@
 
 🚀 Configurator Pages - JSON Register
 
-Bu proje NPM, Vite, VanillaJS ve SCSS teknolojisi kullanılarak yapılmış bir uygulamadır.
+Bu proje NPM, Vite, VanillaJS, Bootstrap ve SCSS teknolojisi kullanılarak yapılmış bir uygulamadır.
 
 ---
 
@@ -22,9 +22,11 @@ Bu proje NPM, Vite, VanillaJS ve SCSS teknolojisi kullanılarak yapılmış bir 
 
 ## ✨ Özellikler
 
-- Özellik 1
-- Özellik 2
-- Özellik 3
+- Vanilla JS 
+- HTML
+- Bootstrap 5
+- Bootstrap Icons
+- SCSS
 
 ---
 
@@ -32,5 +34,5 @@ Bu proje NPM, Vite, VanillaJS ve SCSS teknolojisi kullanılarak yapılmış bir 
 
 1. Depoyu klonlayın:
    ```bash
-   git clone https://github.com/configurator/proje.git
+   git clone https://github.com/configurator/configurator.git
 
