@@ -236,7 +236,7 @@ body {
             border-radius: 50%;
             background-color: rgba(0,0,0,0.2);
             transform: scale(0);
-            animation: ripple-card-animation 1.5s linear;
+            animation: ripple-card-animation .5s linear;
         }
         @keyframes ripple-animation {
             to {
@@ -246,7 +246,7 @@ body {
         }
         @keyframes ripple-card-animation {
             to {
-                transform: scale(4);
+                transform: scale(2);
                 opacity: 0;
             }
         }

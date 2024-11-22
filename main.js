@@ -1,6 +1,7 @@
 import './public/css/bootstrap.min.css'
 import './public/js/bootstrap.bundle.min.js'
 import './style.scss'
+import './dataView.js'
 
 
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
