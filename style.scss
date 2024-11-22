@@ -20,6 +20,7 @@ $border-hover-color: #E0E0E0;
 $border-selected-color: #117F7D;
 $back-button-hover-color: #D0E5E5;
 $size-list-symbol-select-background: #d9d9d9;
+$step5-text-color: #0e5654;
 %box-item {
     position: relative;
     overflow: hidden;
@@ -478,6 +479,41 @@ body {
 
 
         // Step 5 Start
+        .design-box {
+            position: relative;
+            &:first-child::after {
+                content: '';
+                border-right: 1px solid $border-hover-color;
+                position: absolute;
+                height: 90%;
+                right: -10rem;
+                top: 0;
+            }
+            .design-box-item {
+                .design-box-left-item {
+                    .design-box-left-item-image {
+                        img {
+                            width: 10rem;
+                            height: 10rem;
+                            background-color: #eeeeee;
+                        }
+                    }
+                }
+                .design-box-right-item {
+                    .design-box-right-item-title {
+                        font-size: 1.5rem;
+                        color: $step5-text-color;
+                    }
+                    .design-box-right-item-text {
+                        color: $step5-text-color;
+                    }
+                    select {
+                        width: 80%;
+                    }
+                }
+            }
+        }
+
 
 
         // Step 5 Finish
