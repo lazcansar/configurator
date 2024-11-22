@@ -3,6 +3,9 @@ import './public/js/bootstrap.bundle.min.js'
 import './style.scss'
 
 
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
 
 document.querySelectorAll('.main-box-item').forEach(item => {
     item.addEventListener('click', function(e) {
@@ -59,6 +62,30 @@ document.querySelectorAll('.main-box-card').forEach(item => {
         // Ripple animasyonu bittikten sonra elementi kaldır
         ripple.addEventListener('animationend', () => {
             ripple.remove();
+        });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Select all main-box-card elements
+    const cards = document.querySelectorAll('.main-box-card');
+
+    cards.forEach(card => {
+        // Add click event listener to each card
+        card.addEventListener('click', () => {
+            // Find the corresponding main-box-card-summary within the clicked card
+            const summary = card.querySelector('.main-box-card-summary');
+            const link = card.querySelector('.main-box-card-left-text-link button');
+            if (summary) {
+                // Toggle the d-none class to show/hide the summary
+                summary.classList.toggle('d-none');
+                // Change the link text based on summary visibility
+                if (summary.classList.contains('d-none')) {
+                    link.textContent = 'Show Details';
+                } else {
+                    link.textContent = 'Hide Details';
+                }
+            }
         });
     });
 });
