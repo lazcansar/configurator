@@ -598,7 +598,44 @@ body {
                 font-weight: 400;
             }
         }
-
         // Step 7 Finish
+
+
+        // Summary Page Start
+        .alert-title {
+            color: rgb(255, 153, 21);
+        }
+        .custom-card {
+            .list-group-item {
+                .list-group-item-title {
+                    width: 30%;
+                    font-weight: 600;
+                }
+                .list-group-item-content {
+                    width: 30%;
+                    font-weight: 400;
+                }
+                .list-group-item-price {
+                    width: 30%;
+                }
+                .list-group-item-action {
+                    width: 10%;
+                    &:hover {
+                        background-color: transparent;
+                    }
+                    i {
+                        cursor: pointer;
+                        padding: 0.5rem;
+                        &:hover {
+                            background-color: $border-hover-color;
+                        }
+                    }
+                }
+            }
+
+        }
+
+
+        // Summary Page Finish
     }
 }
