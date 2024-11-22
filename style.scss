@@ -6,6 +6,7 @@ $button-background-color-hover: #0E5653;
 $main-box-hover-color: #F8F8F8;
 $border-hover-color: #E0E0E0;
 $border-selected-color: #117F7D;
+$back-button-hover-color: #D0E5E5;
 
 body {
     font-family: "Montserrat", sans-serif;
@@ -115,6 +116,31 @@ body {
 
     // Main Content Area
     .main-content {
+        font-size: 14px;
+
+        .main-content-selected-item-list {
+            span {
+                font-weight: 600;
+            }
+            ul {
+                li {
+                    font-weight: 400;
+                    margin-right: 0.5rem;
+                    &::after {
+                        content: '|';
+                        padding-left: 0.5rem;
+                    }
+                    &:last-child::after {
+                        content: '';
+                        padding-left: 0;
+                    }
+                }
+
+
+            }
+        }
+
+
         .main-content-header {
             .main-content-title {
                 color: $active-color;
@@ -122,7 +148,19 @@ body {
                 font-size: 2.5rem;
             }
 
-            .main-content-button button {
+            .main-content-button .btn-back {
+                background-color: transparent;
+                color: $active-color;
+                border: 1px solid $button-background-color;
+                padding: 1rem 1.5rem;
+                margin-right: 1rem;
+                font-weight: 400;
+                &:hover {
+                    background-color: $back-button-hover-color;
+                }
+            }
+
+            .main-content-button .btn-next {
                 background-color: $button-background-color;
                 color: #fff;
                 padding: 1rem 2rem;
