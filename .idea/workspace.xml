@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="331bfada-1bf5-47cb-abd4-e8e13965b056" name="Changes" comment="Hover &amp; Click Effect Add">
-      <change afterPath="$PROJECT_DIR$/step-2.html" afterDir="false" />
+    <list default="true" id="331bfada-1bf5-47cb-abd4-e8e13965b056" name="Changes" comment="Step-2 Design">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/step-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/step-2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/style.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,7 +102,7 @@
       <workItem from="1732048812746" duration="8585000" />
       <workItem from="1732129623825" duration="9750000" />
       <workItem from="1732182281130" duration="58000" />
-      <workItem from="1732257114552" duration="887000" />
+      <workItem from="1732257114552" duration="4933000" />
     </task>
     <task id="LOCAL-00001" summary="First Commit">
       <option name="closed" value="true" />
@@ -168,7 +168,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732142990977</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Step-2 Design">
+      <option name="closed" value="true" />
+      <created>1732258018795</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1732258018795</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,6 +197,7 @@
     <MESSAGE value="First Commit" />
     <MESSAGE value="first commit" />
     <MESSAGE value="Hover &amp; Click Effect Add" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hover &amp; Click Effect Add" />
+    <MESSAGE value="Step-2 Design" />
+    <option name="LAST_COMMIT_MESSAGE" value="Step-2 Design" />
   </component>
 </project>

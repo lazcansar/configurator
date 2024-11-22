@@ -121,6 +121,7 @@ body {
         .main-content-selected-item-list {
             span {
                 font-weight: 600;
+                margin-right: 0.5rem;
             }
             ul {
                 li {
@@ -175,6 +176,8 @@ body {
 
     // Main Content Box
     .main-box {
+
+        // Step 1
         .selected {
             outline: 2px solid $border-selected-color;
             background-color: $main-box-hover-color;
@@ -216,5 +219,88 @@ body {
             }
 
         }
+
+        // Step 2
+        .main-box-card {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            border: 1px solid $border-hover-color;
+            &:not(.selected):hover {
+                background-color: $main-box-hover-color;
+                outline: 2px solid $border-hover-color;
+            }
+
+            .main-box-card-left {
+                width: 45%;
+                flex-basis: 0 auto;
+                .main-box-card-left-image {
+                    img {
+                        width: 64px;
+                        height: 64px;
+                    }
+                }
+                .main-box-card-left-text {
+                    .main-box-card-left-text-title {
+                        font-weight: 600;
+                        font-size: 1.5rem;
+                    }
+                    .main-box-card-left-content {
+                        font-size: 0.875rem;
+                        font-weight: 400;
+                    }
+                    .main-box-card-left-text-link {
+                        a {
+                            font-weight: 400;
+                            color: $active-color;
+                            text-decoration: none;
+                            position: relative;
+                            &:hover {
+                                color: $active-color-hover;
+                            }
+                            &::after {
+                                content: '';
+                                position: absolute;
+                                border-bottom: 1px solid $active-color-hover;
+                                height: 1px;
+                                width: 100%;
+                                left: 0;
+                                bottom: -3px;
+                            }
+                        }
+                    }
+                }
+
+
+            }
+
+            .main-box-card-right {
+                width: 45%;
+                flex-basis: 0 auto;
+                justify-content: space-around;
+
+                .main-box-card-right-spec {
+                    .main-box-card-right-spec-title {
+                        font-weight: 500;
+                        font-size: 0.875rem;
+                        margin-bottom: 0.5rem;
+                    }
+                    position: relative;
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        height: 100%;
+                        right: -3.5rem;
+                        bottom: 0;
+                        border-right: 1px solid $border-hover-color;
+                    }
+                    &:last-child::after {
+                        all: unset;
+                    }
+                }
+            }
+        }
+
+
     }
 }
