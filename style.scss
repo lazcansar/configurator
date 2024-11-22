@@ -177,7 +177,7 @@ body {
     // Main Content Box
     .main-box {
 
-        // Step 1
+        // Step 1 Start
         .selected {
             outline: 2px solid $border-selected-color;
             background-color: $main-box-hover-color;
@@ -232,8 +232,9 @@ body {
             }
 
         }
+        // Step 1 Finish
 
-        // Step 2
+        // Step 2 Start
         .main-box-card {
             position: relative;
             overflow: hidden;
@@ -352,6 +353,31 @@ body {
 
 
 
+        }
+        // Step 2 Finish
+
+        // Step 3 Start
+        .main-box-sizing {
+            .main-box-sizing-title {
+                font-size: 0.75rem;
+                font-weight: 600;
+                color: $active-color-hover;
+            }
+        }
+        // Step 3 Finish
+        .main-box-sizing {
+            .main-box-sizing-list {
+                .main-box-sizing-list-item {
+                    position: relative;
+                    overflow: hidden;
+                    cursor: pointer;
+                    border: 1px solid $border-hover-color;
+                    &:not(.selected):hover {
+                        background-color: $main-box-hover-color;
+                        outline: 2px solid $border-hover-color;
+                    }
+                }
+            }
         }
 
 
