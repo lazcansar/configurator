@@ -1,0 +1,35 @@
+{
+  "step_one": {
+    "data_one": {
+      "id": 1,
+      "image": "https://image.com",
+      "title": "Flat bottom pouch",
+      "description": "Our flat bottom pouch is the perfect solution for your daily needs. It is made of 100% recycled paper and is suitable for all types of food. Loremin ipsum dolor sit amet, consectetur adipiscing elit.",
+      "price": "0,510 - 0,930 €",
+      "time": "4-7 weeks"
+    },
+    "data_two": {
+      "id": 2,
+      "image": "https://image.com",
+      "title": "Standup pouch | Doypack",
+      "description": "The Packiro Doypack is a perfect solution for your daily needs. It is made of 100% recycled paper and is suitable for all types of food. Loremin ipsum dolor sit amet, consectetur adipiscing elit.",
+      "price": "0,510 - 0,930 €",
+      "time": "4-7 weeks"
+    },
+    "data_three": {
+      "id": 3,
+      "image": "https://image.com",
+      "title": "Standup pouch | Doypack",
+      "description": "The Packiro Doypack is a perfect solution for your daily needs. It is made of 100% recycled paper and is suitable for all types of food. Loremin ipsum dolor sit amet, consectetur adipiscing elit.",
+      "price": "0,510 - 0,930 €",
+      "time": "4-7 weeks"
+    }
+  },
+  "step_two": {
+
+  }
+
+
+
+
+}

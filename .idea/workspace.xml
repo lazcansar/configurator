@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="331bfada-1bf5-47cb-abd4-e8e13965b056" name="Changes" comment="Step-8 Design">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/step-6.html" beforeDir="false" afterPath="$PROJECT_DIR$/step-6.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +62,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "npm.test.executor": "Run",
-    "settings.editor.selected.configurable": "ml.llm.LLMConfigurable",
+    "settings.editor.selected.configurable": "ml.llm.AIAssistantPromptsLibrary",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -107,7 +105,7 @@
       <workItem from="1732257114552" duration="5357000" />
       <workItem from="1732263967174" duration="4655000" />
       <workItem from="1732272613410" duration="21829000" />
-      <workItem from="1732300977852" duration="10523000" />
+      <workItem from="1732300977852" duration="11530000" />
     </task>
     <task id="LOCAL-00001" summary="First Commit">
       <option name="closed" value="true" />
@@ -333,7 +331,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732310737109</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Step-8 Design">
+      <option name="closed" value="true" />
+      <created>1732312828355</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1732312828355</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
