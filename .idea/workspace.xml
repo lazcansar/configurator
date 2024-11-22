@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="331bfada-1bf5-47cb-abd4-e8e13965b056" name="Changes" comment="Step-5 Design">
-      <change beforePath="$PROJECT_DIR$/step-5.html" beforeDir="false" afterPath="$PROJECT_DIR$/step-5.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/step-6.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +104,7 @@
       <workItem from="1732182281130" duration="58000" />
       <workItem from="1732257114552" duration="5357000" />
       <workItem from="1732263967174" duration="4655000" />
-      <workItem from="1732272613410" duration="19361000" />
+      <workItem from="1732272613410" duration="19391000" />
     </task>
     <task id="LOCAL-00001" summary="First Commit">
       <option name="closed" value="true" />
@@ -274,7 +274,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732298465399</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Step-5 Design">
+      <option name="closed" value="true" />
+      <created>1732298520910</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1732298520910</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
