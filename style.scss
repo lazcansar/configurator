@@ -21,6 +21,9 @@ $border-selected-color: #117F7D;
 $back-button-hover-color: #D0E5E5;
 $size-list-symbol-select-background: #d9d9d9;
 $step5-text-color: #0e5654;
+.font-size-small {
+    font-size: 0.75rem;
+}
 %box-item {
     position: relative;
     overflow: hidden;
@@ -513,11 +516,38 @@ body {
                 }
             }
         }
-
-
-
         // Step 5 Finish
 
 
+        // Step 6 Start
+        .addon-box {
+            .addon-box-title {
+                font-size: 1.2rem;
+                color: $step5-text-color;
+            }
+            .addon-box-content {
+                .addon-box-item {
+                    @extend %box-item;
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+                    padding: 0.75rem;
+                    [type="checkbox"] {
+                        width: 1.25rem;
+                        height: 1.25rem;
+                        border: 1px solid #127f7d;
+                        border-radius: 0.25rem;
+                        cursor: pointer;
+                        &:checked {
+                            background-color: #127f7d !important;
+                            border: 1px solid #127f7d !important;
+                        }
+
+                    }
+                }
+            }
+        }
+
+        // Step 6 Finish
     }
 }

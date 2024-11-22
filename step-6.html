@@ -9,7 +9,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
 </head>
 <body>
 <!-- Step -->
@@ -104,7 +103,7 @@
   <div class="container mt-4">
     <div class="main-content-header d-flex align-items-center justify-content-between">
       <div class="main-content-title">
-        Design
+        Add-ons
       </div>
       <div class="main-content-button">
         <button class="btn btn-back">
@@ -125,48 +124,57 @@
 <section class="main-box mt-5">
   <div class="container">
     <div class="row justify-content-between">
-      <!-- Design Items -->
-      <div class="col-md-5 design-box">
-        <div class="design-box-item d-flex gap-4">
-          <div class="design-box-left-item">
-            <div class="design-box-left-item-image">
-              <img src="https://packiro.com/_next/image?url=https%3A%2F%2Fpackiro-content-prod.s3.eu-central-1.amazonaws.com%2Fgeneric-packaging%2Fflat-bottom-pouch-generic-front-design-packiro.png&w=160&q=70" class="rounded-3">
-            </div>
-          </div>
-          <div class="design-box-right-item">
-            <div class="design-box-right-item-title font-600">1. Front and back side</div>
-            <div class="design-box-right-item-text font-400">You have chosen a quantity of <strong>1000 pieces.</strong> This allows you to add <strong>up to 2 designs</strong> to your order.</div>
-            <div class="design-box-right-ask-select mt-4 font-500">Set the number of designs you want:</div>
-            <select class="form-select mt-2">
-              <option value="1">1 Design</option>
-              <option value="2">2 Design (+ 9,00 €)</option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <!-- Design Items -->
-      <!-- Design Items -->
-      <div class="col-md-5 design-box">
-        <div class="design-box-item d-flex gap-4">
-          <div class="design-box-left-item">
-            <div class="design-box-left-item-image">
-              <img src="https://packiro.com/_next/image?url=https%3A%2F%2Fpackiro-content-prod.s3.eu-central-1.amazonaws.com%2Fgeneric-packaging%2Fflat-bottom-pouch-generic-front-design-packiro.png&w=160&q=70" class="rounded-3">
-            </div>
-          </div>
-          <div class="design-box-right-item">
-            <div class="design-box-right-item-title font-600">2. Sides & Bottoms</div>
-            <div class="design-box-right-item-text font-400">You have chosen a <strong>Flat-bottom pouch</strong> and a quantity of <strong>under 2.500 pieces.</strong> You can print the bottom and sides in black or white.</div>
-            <div class="design-box-right-ask-select mt-4 font-500">Set design:</div>
-            <select class="form-select mt-2">
-              <option selected>Please select the color</option>
-              <option value="1">White</option>
-              <option value="2">Black</option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <!-- Design Items -->
+      <div class="col-md-3">
+        <div class="addon-box">
+          <div class="addon-box-title font-700 mb-3">Add-Ons</div>
+          <div class="addon-box-content d-flex flex-column gap-3">
+            <!-- Add-ons Box Checkbox Item -->
+            <label id="one" class="addon-box-item d-flex align-items-center rounded-3 position-relative d-block" for="itemOne">
+                <input type="checkbox" value="" id="itemOne">
+                <img src="https://cdn-icons-png.flaticon.com/512/3461/3461269.png" height="32">
+                <div>
+                  <span class="font-600">Pocket Zipper</span>
+                  <span class="d-block font-size-small font-400">+ 0,00 € / Piece</span>
+                </div>
+            </label>
+            <!-- Add-ons Box Checkbox Item -->
 
+            <!-- Add-ons Box Checkbox Item -->
+            <label id="two" class="addon-box-item d-flex align-items-center rounded-3 position-relative d-block" for="itemTwo">
+              <input type="checkbox" value="" id="itemTwo">
+              <img src="https://cdn-icons-png.flaticon.com/512/3233/3233875.png" height="32">
+              <div>
+                <span class="font-600">Aroma Valve</span>
+                <span class="d-block font-size-small font-400">+ 0,90 € / Piece</span>
+              </div>
+            </label>
+            <!-- Add-ons Box Checkbox Item -->
+
+          </div>
+
+          <div class="addon-box-title font-700 mt-4 mb-3">Sustainability seal</div>
+          <div class="addon-box-content d-flex flex-column gap-3">
+            <!-- Add-ons Box Checkbox Item -->
+            <label id="tree" class="addon-box-item d-flex align-items-center rounded-3 position-relative d-block" for="itemThree">
+              <input type="checkbox" value="" id="itemThree">
+              <img src="https://cdn-icons-png.flaticon.com/512/4468/4468641.png" height="32">
+              <div>
+                <span class="font-600">FSC-Certification</span>
+                <span class="d-block font-size-small font-400">+ 0,020 € / Piece</span>
+              </div>
+            </label>
+            <!-- Add-ons Box Checkbox Item -->
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-md-3 addon-hover-content">
+
+      </div>
+      <div class="col-md-3 addon-hover-image">
+
+      </div>
 
     </div>
   </div>

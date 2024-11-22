@@ -6,7 +6,9 @@ import './style.scss'
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
 const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
-
+/*
+Step 1
+ */
 document.querySelectorAll('.main-box-item').forEach(item => {
     item.addEventListener('click', function(e) {
 
@@ -36,7 +38,9 @@ document.querySelectorAll('.main-box-item').forEach(item => {
     });
 });
 
-
+/*
+Step 2
+ */
 document.querySelectorAll('.main-box-card').forEach(item => {
     item.addEventListener('click', function(e) {
 
@@ -65,8 +69,33 @@ document.querySelectorAll('.main-box-card').forEach(item => {
         });
     });
 });
+document.addEventListener('DOMContentLoaded', () => {
+    // Select all main-box-card elements
+    const cards = document.querySelectorAll('.main-box-card');
 
+    cards.forEach(card => {
+        // Add click event listener to each card
+        card.addEventListener('click', () => {
+            // Find the corresponding main-box-card-summary within the clicked card
+            const summary = card.querySelector('.main-box-card-summary');
+            const link = card.querySelector('.main-box-card-left-text-link button');
+            if (summary) {
+                // Toggle the d-none class to show/hide the summary
+                summary.classList.toggle('d-none');
+                // Change the link text based on summary visibility
+                if (summary.classList.contains('d-none')) {
+                    link.textContent = 'Show Details';
+                } else {
+                    link.textContent = 'Hide Details';
+                }
+            }
+        });
+    });
+});
 
+/*
+Step 3
+ */
 document.querySelectorAll('.main-box-sizing-list-item').forEach(item => {
     const imageContainer = document.querySelector('.image-container');
     const images = {
@@ -130,30 +159,10 @@ document.querySelectorAll('.main-box-sizing-list-item').forEach(item => {
     });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Select all main-box-card elements
-    const cards = document.querySelectorAll('.main-box-card');
 
-    cards.forEach(card => {
-        // Add click event listener to each card
-        card.addEventListener('click', () => {
-            // Find the corresponding main-box-card-summary within the clicked card
-            const summary = card.querySelector('.main-box-card-summary');
-            const link = card.querySelector('.main-box-card-left-text-link button');
-            if (summary) {
-                // Toggle the d-none class to show/hide the summary
-                summary.classList.toggle('d-none');
-                // Change the link text based on summary visibility
-                if (summary.classList.contains('d-none')) {
-                    link.textContent = 'Show Details';
-                } else {
-                    link.textContent = 'Hide Details';
-                }
-            }
-        });
-    });
-});
-
+/*
+Step 4
+ */
 document.querySelectorAll('.quantity-box-item').forEach(item => {
     item.addEventListener('click', function(e) {
 
@@ -182,3 +191,7 @@ document.querySelectorAll('.quantity-box-item').forEach(item => {
         });
     });
 });
+
+/*
+Step 6
+ */
