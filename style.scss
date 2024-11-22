@@ -547,6 +547,32 @@ body {
                 }
             }
         }
+        .addon-hover-image img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .addon-hover-image img.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .addon-hover-content {
+            margin-top: 2.5rem;
+            .addon-hover-content-title {
+                font-size: 1.2rem;
+                font-weight: 600;
+            }
+            p {
+                margin-top: 1rem;
+                font-weight: 400;
+            }
+        }
 
         // Step 6 Finish
     }

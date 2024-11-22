@@ -195,3 +195,91 @@ document.querySelectorAll('.quantity-box-item').forEach(item => {
 /*
 Step 6
  */
+
+document.querySelectorAll('.addon-box-item').forEach(item => {
+    const addonImage = document.querySelector('.addon-hover-image');
+    const images = {
+        one: 'https://packiro.com/_next/image?url=https%3A%2F%2Fpackiro-content-prod.s3.eu-central-1.amazonaws.com%2Faddons%2Fadd-ons-zipper-packiro.png&w=500&q=70',
+        two: 'https://packiro.com/_next/image?url=https%3A%2F%2Fpackiro-content-prod.s3.eu-central-1.amazonaws.com%2Faddons%2Fadd-ons-valve-packiro.png&w=500&q=70',
+        tree: 'https://packiro.com/_next/image?url=https%3A%2F%2Fpackiro-content-prod.s3.eu-central-1.amazonaws.com%2Faddons%2Fadd-ons-fsc-seal-en-packiro.png&w=500&q=70',
+    };
+    const contentElement = document.querySelector('.addon-hover-content');
+    const content = {
+        one: {
+            title: 'Zipper',
+            text: 'The pocket zipper is located only on the front of the packaging. This allows you to open the pouch especially wide and filling becomes a breeze.'
+        },
+        two: {
+            title: 'Aroma valve',
+            text: 'An aroma valve allows CO2 to escape while preventing air from entering. Your contents remain protected without the packaging inflating or bursting. An absolute must for coffee packaging!'
+        },
+        tree: {
+            title: 'FSC-certification',
+            text: 'Our paper comes exclusively from FSC®-certified forest regions. With the seal of the Forest Stewardship Council® organisation, the sustainability of your packaging is directly visible to your customers! You can print the seal on your pouches in portrait or landscape format.'
+        }
+    };
+
+    item.addEventListener('mouseover', function() {
+        const id = this.id;
+        if (images[id]) {
+            // Yeni resmi eklemeden önce mevcut resmi kaldır
+            addonImage.innerHTML = '';
+
+            const img = document.createElement('img');
+            img.src = images[id];
+            img.alt = id;
+
+            // Resmi ekle ve zoom efektini tetiklemek için 'show' sınıfını ekle
+            addonImage.appendChild(img);
+            setTimeout(() => {
+                img.classList.add('show');
+            }, 50); // Biraz gecikme efekti düzgün göstermeyi sağlar
+        }
+
+        if (content[id]) {
+            contentElement.innerHTML = '';
+            const div = document.createElement('div');
+            const styledDiv = document.createElement('div');
+            styledDiv.classList.add('addon-hover-content-title');
+            const hr = document.createElement('hr');
+            const p = document.createElement('p');
+            styledDiv.innerHTML = content[id].title;
+            p.innerHTML = content[id].text;
+            div.appendChild(styledDiv);
+            div.appendChild(hr);
+            div.appendChild(p);
+            contentElement.appendChild(div);
+
+
+        }
+    });
+
+
+
+    item.addEventListener('click', function(e) {
+
+        // Mevcut seçili durumu kaldırın
+        document.querySelectorAll('.addon-box-item').forEach(el => el.classList.remove('selected'));
+
+        // Tıklanan elemana 'selected' sınıfını ekleyin
+        this.classList.add('selected');
+
+
+        const ripple = document.createElement('span');
+        ripple.classList.add('ripple');
+
+        const rect = item.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        ripple.style.width = ripple.style.height = `${size * 2}px`;
+        ripple.style.left = `${e.clientX - rect.left - size}px`;
+        ripple.style.top = `${e.clientY - rect.top - size}px`;
+
+        // Ripple'ı kutuya ekle
+        item.appendChild(ripple);
+
+        // Ripple animasyonu bittikten sonra elementi kaldır
+        ripple.addEventListener('animationend', () => {
+            ripple.remove();
+        });
+    });
+});
