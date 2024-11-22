@@ -11,6 +11,8 @@ $main-box-hover-color: #F8F8F8;
 $border-hover-color: #E0E0E0;
 $border-selected-color: #117F7D;
 $back-button-hover-color: #D0E5E5;
+$size-list-symbol-select-background: #d9d9d9;
+
 body {
     font-family: "Montserrat", sans-serif;
     font-weight: 300;
@@ -376,6 +378,23 @@ body {
                         background-color: $main-box-hover-color;
                         outline: 2px solid $border-hover-color;
                     }
+
+                    .main-box-sizing-list-item-left {
+                        font-weight: 600;
+
+                        .main-box-sizing-list-item-left-symbol {
+                            font-size: 0.875rem;
+                            width: 2.5rem;
+                            height: 2.5rem;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+                        .selected-list-item-symbol {
+                            background-color: $size-list-symbol-select-background;
+                        }
+                    }
+
                 }
             }
         }

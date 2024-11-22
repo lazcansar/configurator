@@ -72,9 +72,15 @@ document.querySelectorAll('.main-box-sizing-list-item').forEach(item => {
 
         // Mevcut seçili durumu kaldırın
         document.querySelectorAll('.main-box-sizing-list-item').forEach(el => el.classList.remove('selected'));
+        document.querySelectorAll('.main-box-sizing-list-item-left-symbol').forEach(symbol => symbol.classList.remove('selected-list-item-symbol'));
 
         // Tıklanan elemana 'selected' sınıfını ekleyin
         this.classList.add('selected');
+
+        const leftSymbol = this.querySelector('.main-box-sizing-list-item-left-symbol');
+        if (leftSymbol) {
+            leftSymbol.classList.add('selected-list-item-symbol');
+        }
 
 
         const ripple = document.createElement('span');
