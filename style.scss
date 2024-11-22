@@ -20,6 +20,31 @@ $border-hover-color: #E0E0E0;
 $border-selected-color: #117F7D;
 $back-button-hover-color: #D0E5E5;
 $size-list-symbol-select-background: #d9d9d9;
+%box-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid $border-hover-color;
+    &:not(.selected):hover {
+        background-color: $main-box-hover-color;
+        outline: 2px solid $border-hover-color;
+    }
+}
+.font-400 {
+    font-weight: 400;
+}
+.font-500 {
+    font-weight: 500;
+}
+.font-600 {
+    font-weight: 600;
+}
+.font-700 {
+    font-weight: 700;
+}
+.font-800 {
+    font-weight: 800;
+}
 
 body {
     font-family: "Montserrat", sans-serif;
@@ -373,9 +398,6 @@ body {
                 font-weight: 600;
                 color: $active-color-hover;
             }
-        }
-        // Step 3 Finish
-        .main-box-sizing {
             .main-box-sizing-list {
                 .main-box-sizing-list-item {
                     position: relative;
@@ -422,7 +444,35 @@ body {
             transform: scale(1);
         }
 
+        // Step 3 Finish
         // Step 4 Start
+        .quantity-box-head {
+            font-size: 0.75rem;
+            .quantity-box-head-text {
+                width: 25%;
+            }
+        }
+        .quantity-box-item {
+            @extend %box-item;
+            .quantity-box-item-list {
+                width: 25%;
+                font-weight: 400;
+                span {
+                    background-color: #f5e7e9;
+                    font-weight: 500;
+                    padding: 0.25rem 0.75rem;
+                    border-radius: 0.5rem;
+                }
+                &:nth-child(1) {
+                    font-weight: 600;
+                }
+            }
+        }
+        .step-4-alert {
+            background-color: #e4f2ec;
+            font-size: 0.75rem;
+            color: #49a581;
+        }
 
 
         // Step 4 Finish
