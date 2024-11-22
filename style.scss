@@ -189,7 +189,20 @@ body {
             transform: scale(0);
             animation: ripple-animation 1s linear;
         }
+        .ripple-card {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(0,0,0,0.2);
+            transform: scale(0);
+            animation: ripple-card-animation 2s linear;
+        }
         @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+        @keyframes ripple-card-animation {
             to {
                 transform: scale(4);
                 opacity: 0;
