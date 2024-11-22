@@ -1,7 +1,8 @@
+/*
+Step 1 Start
+ */
 document.addEventListener('DOMContentLoaded', () => {
-    /*
-    Step 1 Start
-     */
+
     // JSON verisi
     const stepOneData = {
         "data_one": {
@@ -91,16 +92,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    /*
-    Step 1 Finish
-     */
-
 
 });
+/*
+Step 1 Finish
+ */
+/*
+
+
+
+
+Step 2 Start
+ */
 document.addEventListener('DOMContentLoaded', () => {
-    /*
-    Step 2 Start
-     */
+
     // JSON verisi
     const stepTwoData = {
         "data_one": {
@@ -296,15 +301,21 @@ document.addEventListener('DOMContentLoaded', () => {
         // Kartı kapsayıcıya ekle
         containerStepTwo.appendChild(card);
     });
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
-    /*
-    Step 2 Finish
-     */
+
 });
-document.addEventListener('DOMContentLoaded', () => {
+/*
+Step 2 Finish
+ */
+
+
     /*
     Step 3 Start
      */
+document.addEventListener('DOMContentLoaded', () => {
+
     const stepThreeData = {
         "data_one": {
             sizeSymbol: 'XXS',
@@ -429,13 +440,121 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+
+
+});
     /*
     Step 3 Finish
      */
 
+
+
+
     /*
     Step 4 Start
      */
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const stepFourData = {
+            "data_one": {
+                quantity: '500',
+                discount: '0',
+                unitPrice: '1,100 €',
+                totalAmount: '550,00 €',
+                numberOfDesigns: '1',
+            },
+            "data_two": {
+                quantity: '1.000',
+                discount: '<span>-12%</span>',
+                unitPrice: '0,570 €',
+                totalAmount: '570,00 €',
+                numberOfDesigns: 'up to 2 designs',
+            },
+            "data_three": {
+                quantity: '1.500',
+                discount: '<span>-15%</span>',
+                unitPrice: '0,550 €',
+                totalAmount: '825,00 €',
+                numberOfDesigns: 'up to 3 designs',
+            },
+            "data_four": {
+                quantity: '1.500',
+                discount: '<span>-15%</span>',
+                unitPrice: '0,550 €',
+                totalAmount: '825,00 €',
+                numberOfDesigns: 'up to 3 designs',
+            },
+            "data_five": {
+                quantity: '1.500',
+                discount: '<span>-15%</span>',
+                unitPrice: '0,550 €',
+                totalAmount: '825,00 €',
+                numberOfDesigns: 'up to 3 designs',
+            },
+            "data_six": {
+                quantity: '1.500',
+                discount: '<span>-15%</span>',
+                unitPrice: '0,550 €',
+                totalAmount: '825,00 €',
+                numberOfDesigns: 'up to 3 designs',
+            },
+        };
+
+        // HTML kapsayıcıyı seç
+        const containerStepFour = document.querySelector('.row.flex-column.gap-2');
+
+        if (containerStepFour) {
+            // JSON verisini döngüyle işleyerek HTML'ye ekle
+            Object.values(stepFourData).forEach((item) => {
+                const box = document.createElement('div');
+                box.className =
+                    'quantity-box-item d-flex justify-content-between align-items-center rounded-3 py-2 px-4';
+
+                box.innerHTML = `
+        <div class="quantity-box-item-list">${item.quantity}</div>
+        <div class="quantity-box-item-list">${item.discount}</div>
+        <div class="quantity-box-item-list">${item.unitPrice}</div>
+        <div class="quantity-box-item-list">${item.totalAmount}</div>
+        <div class="quantity-box-item-list">${item.numberOfDesigns}</div>
+      `;
+
+                // Kapsayıcıya ekle
+                containerStepFour.appendChild(box);
+            });
+        }
+
+        document.querySelectorAll('.quantity-box-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+
+                // Mevcut seçili durumu kaldırın
+                document.querySelectorAll('.quantity-box-item').forEach(el => el.classList.remove('selected'));
+
+                // Tıklanan elemana 'selected' sınıfını ekleyin
+                this.classList.add('selected');
+
+
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple');
+
+                const rect = item.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                ripple.style.width = ripple.style.height = `${size * 2}px`;
+                ripple.style.left = `${e.clientX - rect.left - size}px`;
+                ripple.style.top = `${e.clientY - rect.top - size}px`;
+
+                // Ripple'ı kutuya ekle
+                item.appendChild(ripple);
+
+                // Ripple animasyonu bittikten sonra elementi kaldır
+                ripple.addEventListener('animationend', () => {
+                    ripple.remove();
+                });
+            });
+        });
+
+
+
+    });
 
 
 
@@ -444,4 +563,3 @@ document.addEventListener('DOMContentLoaded', () => {
      */
 
 
-});
