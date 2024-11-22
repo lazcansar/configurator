@@ -96,6 +96,8 @@ document.addEventListener('DOMContentLoaded', () => {
      */
 
 
+});
+document.addEventListener('DOMContentLoaded', () => {
     /*
     Step 2 Start
      */
@@ -298,4 +300,148 @@ document.addEventListener('DOMContentLoaded', () => {
     /*
     Step 2 Finish
      */
+});
+document.addEventListener('DOMContentLoaded', () => {
+    /*
+    Step 3 Start
+     */
+    const stepThreeData = {
+        "data_one": {
+            sizeSymbol: 'XXS',
+            sizeText: '85 <i class="bi bi-x"></i> 100 mm',
+            sizeRightText: '15 ml'
+        },
+        "data_two": {
+            sizeSymbol: 'XS',
+            sizeText: '85 <i class="bi bi-x"></i> 150 mm',
+            sizeRightText: '60 ml'
+        },
+        "data_three": {
+            sizeSymbol: 'S',
+            sizeText: '100 <i class="bi bi-x"></i> 160 mm',
+            sizeRightText: '75 ml'
+        },
+        "data_four": {
+            sizeSymbol: 'M',
+            sizeText: '120 <i class="bi bi-x"></i> 190 mm',
+            sizeRightText: '180 ml'
+        },
+        "data_five": {
+            sizeSymbol: 'L',
+            sizeText: '160 <i class="bi bi-x"></i> 230 mm',
+            sizeRightText: '600 ml'
+        },
+        "data_six": {
+            sizeSymbol: 'XL',
+            sizeText: '190 <i class="bi bi-x"></i> 270 mm',
+            sizeRightText: '950 ml'
+        },
+        "data_seven": {
+            sizeSymbol: 'XXL',
+            sizeText: '300 <i class="bi bi-x"></i> 350 mm',
+            sizeRightText: '3500 ml'
+        }
+    };
+    const containerStepThree = document.querySelector('.main-box-sizing-list');
+
+    // Kapsayıcı elemanın varlığını teyit et
+    if (containerStepThree) {
+        // JSON verisini döngüyle HTML'ye ekle
+        Object.values(stepThreeData).forEach((item) => {
+            const box = document.createElement('div');
+            box.className = 'main-box-sizing-list-item d-flex align-items-center justify-content-between rounded-3 p-3';
+            box.id = item.sizeSymbol; // Her bir eleman için benzersiz ID
+            box.innerHTML = `
+                <div class="main-box-sizing-list-item-left d-flex align-items-center gap-3">
+                    <div class="main-box-sizing-list-item-left-symbol border border-2 border-dark rounded-3">${item.sizeSymbol}</div>
+                    <div class="main-box-sizing-list-item-left-text">${item.sizeText}</div>
+                </div>
+                <div class="main-box-sizing-list-item-right">
+                    <div class="main-box-sizing-list-item-right-text">${item.sizeRightText}</div>
+                </div>
+            `;
+            // Kapsayıcıya ekle
+            containerStepThree.appendChild(box);
+        });
+    }
+
+
+
+    document.querySelectorAll('.main-box-sizing-list-item').forEach(item => {
+        const imageContainer = document.querySelector('.image-container');
+        const images = {
+            XXS: 'https://packiro.com/_next/image?url=https%3A%2F%2Fpackiro-content-prod.s3.eu-central-1.amazonaws.com%2Fgeneric-packaging%2F1zu1%2Fstand-up-pouches-configurator%2Fnew-sizes-step-configurator%2Fsup-xxs-configurator-all-sizes-packiro.png&w=750&q=70',
+            XS: 'https://packiro.com/_next/image?url=https%3A%2F%2Fpackiro-content-prod.s3.eu-central-1.amazonaws.com%2Fgeneric-packaging%2F1zu1%2Fstand-up-pouches-configurator%2Fnew-sizes-step-configurator%2Fsup-xs-configurator-all-sizes-packiro.png&w=750&q=70',
+            S: 'https://packiro.com/_next/image?url=https%3A%2F%2Fpackiro-content-prod.s3.eu-central-1.amazonaws.com%2Fgeneric-packaging%2F1zu1%2Fstand-up-pouches-configurator%2Fnew-sizes-step-configurator%2Fsup-s-configurator-all-sizes-packiro.png&w=750&q=70',
+            M: 'https://packiro.com/_next/image?url=https%3A%2F%2Fpackiro-content-prod.s3.eu-central-1.amazonaws.com%2Fgeneric-packaging%2F1zu1%2Fstand-up-pouches-configurator%2Fnew-sizes-step-configurator%2Fsup-m-configurator-all-sizes-packiro.png&w=750&q=70',
+            L: 'https://packiro.com/_next/image?url=https%3A%2F%2Fpackiro-content-prod.s3.eu-central-1.amazonaws.com%2Fgeneric-packaging%2F1zu1%2Fstand-up-pouches-configurator%2Fnew-sizes-step-configurator%2Fsup-l-configurator-all-sizes-packiro.png&w=750&q=70',
+            XL: 'https://packiro.com/_next/image?url=https%3A%2F%2Fpackiro-content-prod.s3.eu-central-1.amazonaws.com%2Fgeneric-packaging%2F1zu1%2Fstand-up-pouches-configurator%2Fnew-sizes-step-configurator%2Fsup-xl-configurator-all-sizes-packiro.png&w=750&q=70',
+            XXL: 'https://packiro.com/_next/image?url=https%3A%2F%2Fpackiro-content-prod.s3.eu-central-1.amazonaws.com%2Fgeneric-packaging%2F1zu1%2Fstand-up-pouches-configurator%2Fnew-sizes-step-configurator%2Fsup-xxl-configurator-all-sizes-packiro.png&w=750&q=70',
+        };
+        item.addEventListener('mouseover', function() {
+            const id = this.id;
+            if (images[id]) {
+                // Yeni resmi eklemeden önce mevcut resmi kaldır
+                imageContainer.innerHTML = '';
+
+                const img = document.createElement('img');
+                img.src = images[id];
+                img.alt = id;
+
+                // Resmi ekle ve zoom efektini tetiklemek için 'show' sınıfını ekle
+                imageContainer.appendChild(img);
+                setTimeout(() => {
+                    img.classList.add('show');
+                }, 50); // Biraz gecikme efekti düzgün göstermeyi sağlar
+            }
+        });
+
+        item.addEventListener('click', function(e) {
+
+            // Mevcut seçili durumu kaldırın
+            document.querySelectorAll('.main-box-sizing-list-item').forEach(el => el.classList.remove('selected'));
+            document.querySelectorAll('.main-box-sizing-list-item-left-symbol').forEach(symbol => symbol.classList.remove('selected-list-item-symbol'));
+
+            // Tıklanan elemana 'selected' sınıfını ekleyin
+            this.classList.add('selected');
+
+            const leftSymbol = this.querySelector('.main-box-sizing-list-item-left-symbol');
+            if (leftSymbol) {
+                leftSymbol.classList.add('selected-list-item-symbol');
+            }
+
+
+            const ripple = document.createElement('span');
+            ripple.classList.add('ripple');
+
+            const rect = item.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            ripple.style.width = ripple.style.height = `${size * 2}px`;
+            ripple.style.left = `${e.clientX - rect.left - size}px`;
+            ripple.style.top = `${e.clientY - rect.top - size}px`;
+
+            // Ripple'ı kutuya ekle
+            item.appendChild(ripple);
+
+            // Ripple animasyonu bittikten sonra elementi kaldır
+            ripple.addEventListener('animationend', () => {
+                ripple.remove();
+            });
+        });
+    });
+    /*
+    Step 3 Finish
+     */
+
+    /*
+    Step 4 Start
+     */
+
+
+
+    /*
+    Step 4 Finish
+     */
+
+
 });
