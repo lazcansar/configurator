@@ -24,6 +24,9 @@ $step5-text-color: #0e5654;
 .font-size-small {
     font-size: 0.75rem;
 }
+.font-size-small-2 {
+    font-size: 0.875rem;
+}
 %box-item {
     position: relative;
     overflow: hidden;
@@ -575,5 +578,27 @@ body {
         }
 
         // Step 6 Finish
+
+
+        // Step 7 Start
+        .choose-box-item {
+            @extend %box-item;
+        }
+        .choose-box-item-design {
+            @extend %box-item;
+        }
+        .choose-click-content {
+            margin-top: 2.5rem;
+            .addon-hover-content-title {
+                font-size: 1.2rem;
+                font-weight: 600;
+            }
+            p {
+                margin-top: 1rem;
+                font-weight: 400;
+            }
+        }
+
+        // Step 7 Finish
     }
 }
