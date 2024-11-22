@@ -129,13 +129,35 @@
           <div class="addon-box-title font-700 mb-3">Add-Ons</div>
           <div class="addon-box-content d-flex flex-column gap-3">
             <!-- Add-ons Box Checkbox Item -->
-            <label id="one" class="addon-box-item d-flex align-items-center rounded-3 position-relative d-block" for="itemOne">
+            <label id="one" class="addon-box-item d-flex align-items-center rounded-3 position-relative d-block" for="itemOne" data-custom="summary">
                 <input type="checkbox" class="custom-checkbox" value="" id="itemOne">
                 <img src="https://cdn-icons-png.flaticon.com/512/3461/3461269.png" height="32">
-                <div>
+                <div class="addon-box-item-right">
                   <span class="font-600">Pocket Zipper</span>
                   <span class="d-block font-size-small font-400">+ 0,00 € / Piece</span>
+
+                  <div class="addon-box-item-summary d-none">
+                    <div class="addon-box-item-summary-item">
+                      <label class="p-3 border border-1 d-flex align-items-center rounded-3 position-relative d-block gap-3 pointer-event" for="closed-zipper">
+                        <input type="radio" name="flexRadioDefault" id="closed-zipper">
+                        <div>
+                        <span class="font-600 font-size-small">Closed Zipper</span>
+                        <span class="d-block font-size-small font-400">+ 0,010 € / Piece</span>
+                        </div>
+                      </label>
+                    </div>
+                    <div class="addon-box-item-summary-item mt-3">
+                      <label class="p-3 border border-1 d-flex align-items-center rounded-3 position-relative d-block gap-3 pointer-event" for="open-zipper">
+                        <input type="radio" name="flexRadioDefault" id="open-zipper">
+                        <div>
+                          <span class="font-600 font-size-small">Open Zipper</span>
+                          <span class="d-block font-size-small font-400">+ 0,020 € / Piece</span>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
                 </div>
+
             </label>
             <!-- Add-ons Box Checkbox Item -->
 

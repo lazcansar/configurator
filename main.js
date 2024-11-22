@@ -195,6 +195,25 @@ document.querySelectorAll('.quantity-box-item').forEach(item => {
 /*
 Step 6
  */
+// Tüm data-custom="summary" olan elementleri seçin.
+const stepSixSummaries = document.querySelectorAll('[data-custom="summary"]');
+const itemRight = document.querySelectorAll('.addon-box-item-right');
+
+// Her bir elemana click event listener ekleyin
+itemRight.forEach(stepSixSummary => {
+    stepSixSummary.addEventListener('click', function(event) {
+        // Olayın yayılmasını önleyin
+        event.stopPropagation();
+
+        // Tıklanan öğe içinde .addon-box-item-summary sınıfına sahip özet öğeyi bulun
+        const summary = stepSixSummary.querySelector('.addon-box-item-summary');
+        if (summary) {
+            // d-none sınıfını göster/gizle
+            summary.classList.toggle('d-none');
+            console.log(summary);
+        }
+    });
+});
 
 document.querySelectorAll('.addon-box-item').forEach(item => {
     const addonImage = document.querySelector('.addon-hover-image');
