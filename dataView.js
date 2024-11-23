@@ -602,7 +602,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     console.log(quantityValue);
                     console.log(unitpriceValue);
                     localStorage.setItem('Quantity', quantityValue);
-                    localStorage.setItem('Quantity Discount', unitpriceValue);
+                    localStorage.setItem('Quantity Unit Price', unitpriceValue);
                 }
 
 
