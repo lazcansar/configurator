@@ -784,7 +784,7 @@ document.addEventListener('DOMContentLoaded', () => {
     sections.forEach(section => {
         // Başlık ekleme
         const title = document.createElement('div');
-        title.className = 'addon-box-title font-700 mb-3';
+        title.className = 'addon-box-title font-700 my-3';
         title.innerText = section.title;
         container.appendChild(title);
 
@@ -805,8 +805,8 @@ document.addEventListener('DOMContentLoaded', () => {
             <input type="checkbox" class="custom-checkbox" id="${item.for}">
             <img src="${item.image}" height="32">
             <div class="addon-box-item-right">
-                <span class="font-600">${item.title}</span>
-                <span class="d-block font-size-small font-400">${item.description}</span>
+                <span class="font-600 addon-box-item-right-title">${item.title}</span>
+                <span class="d-block font-size-small font-400 addon-box-item-right-price">${item.description}</span>
                 ${item.options.length > 0 ? `
                     <div class="addon-box-item-summary d-none">
                         ${item.options.map(option => `
@@ -827,11 +827,57 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // İçeriği kapsayıcıya ekle
             contentContainer.appendChild(label);
+
+
         });
 
         // İçerik kapsayıcıyı ana kapsayıcıya ekle
         container.appendChild(contentContainer);
+
+
     });
+
+    document.querySelectorAll('.addon-box-item').forEach(item => {
+        // Checkbox için
+        const checkbox = item.querySelector('.custom-checkbox');
+        if (checkbox) {
+            checkbox.addEventListener('change', function () {
+                const stepSixTitle = item.querySelector('.addon-box-item-right-title');
+                if (stepSixTitle) {
+                    const titleValue = stepSixTitle.textContent.trim();
+                    if (this.checked) {
+                        console.log(`Checkbox Checked: ${titleValue}`);
+                        localStorage.setItem(this.id, titleValue);
+                    } else {
+                        console.log(`Checkbox Unchecked: ${titleValue}`);
+                        localStorage.removeItem(this.id);
+                    }
+                } else {
+                    console.warn('addon-box-item-right-title element not found in the checkbox\'s parent item.');
+                }
+            });
+        }
+
+        // Radio butonlar için
+        const radios = item.querySelectorAll('input[type="radio"]');
+        if (radios.length > 0) {
+            radios.forEach(radio => {
+                radio.addEventListener('change', function () {
+                    if (this.checked) {
+                        const stepSixTitle = item.querySelector('.addon-box-item-right-title');
+                        if (stepSixTitle) {
+                            const titleValue = stepSixTitle.textContent.trim();
+                            console.log(`Radio Selected: ${titleValue} - Option: ${this.id}`);
+                            localStorage.setItem(this.id, `${titleValue} - Option: ${this.id}`);
+                        } else {
+                            console.warn('addon-box-item-right-title element not found in the radio\'s parent item.');
+                        }
+                    }
+                });
+            });
+        }
+    });
+
 
 
     // Write HTML Template Finish
