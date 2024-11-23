@@ -725,15 +725,244 @@ Step 5 Finish
 Step 6 Start
  */
 
+
+// Tüm data-custom="summary" olan elementleri seçin.
 document.addEventListener('DOMContentLoaded', () => {
+    const sections = [
+        {
+            "title": "Add-Ons",
+            "content": [
+                {
+                    "id": "one",
+                    "for": "itemOne",
+                    "title": "Pocket Zipper",
+                    "description": "+ 0,00 € / Piece",
+                    "image": "https://cdn-icons-png.flaticon.com/512/3461/3461269.png",
+                    "options": [
+                        {
+                            "id": "closed-zipper",
+                            "name": "Closed Zipper",
+                            "price": "+ 0,010 € / Piece"
+                        },
+                        {
+                            "id": "open-zipper",
+                            "name": "Open Zipper",
+                            "price": "+ 0,020 € / Piece"
+                        }
+                    ],
+                    "customData": "summary"
+                },
+                {
+                    "id": "two",
+                    "for": "itemTwo",
+                    "title": "Aroma Valve",
+                    "description": "+ 0,90 € / Piece",
+                    "image": "https://cdn-icons-png.flaticon.com/512/3233/3233875.png",
+                    "options": []
+                }
+            ]
+        },
+        {
+            "title": "Sustainability seal",
+            "content": [
+                {
+                    "id": "tree",
+                    "for": "itemThree",
+                    "title": "FSC-Certification",
+                    "description": "+ 0,020 € / Piece",
+                    "image": "https://cdn-icons-png.flaticon.com/512/4468/4468641.png",
+                    "options": []
+                }
+            ]
+        }
+    ];
+
+// Write HTML Template
+    const container = document.querySelector('.addon-box'); // Ana kapsayıcı
+
+// JSON verisini döngüyle işleme
+    sections.forEach(section => {
+        // Başlık ekleme
+        const title = document.createElement('div');
+        title.className = 'addon-box-title font-700 mb-3';
+        title.innerText = section.title;
+        container.appendChild(title);
+
+        // İçeriği oluşturma
+        const contentContainer = document.createElement('div');
+        contentContainer.className = 'addon-box-content d-flex flex-column gap-3';
+
+        section.content.forEach(item => {
+            const label = document.createElement('label');
+            label.id = item.id;
+            label.className = 'addon-box-item d-flex align-items-center rounded-3 position-relative d-block';
+            label.setAttribute('for', item.for);
+            if (item.customData) {
+                label.setAttribute('data-custom', item.customData);
+            }
+
+            label.innerHTML = `
+            <input type="checkbox" class="custom-checkbox" id="${item.for}">
+            <img src="${item.image}" height="32">
+            <div class="addon-box-item-right">
+                <span class="font-600">${item.title}</span>
+                <span class="d-block font-size-small font-400">${item.description}</span>
+                ${item.options.length > 0 ? `
+                    <div class="addon-box-item-summary d-none">
+                        ${item.options.map(option => `
+                            <div class="addon-box-item-summary-item">
+                                <label class="p-3 border border-1 d-flex align-items-center rounded-3 position-relative d-block gap-3 pointer-event" for="${option.id}">
+                                    <input type="radio" name="${item.id}-options" id="${option.id}">
+                                    <div>
+                                        <span class="font-600 font-size-small">${option.name}</span>
+                                        <span class="d-block font-size-small font-400">${option.price}</span>
+                                    </div>
+                                </label>
+                            </div>
+                        `).join('')}
+                    </div>
+                ` : ''}
+            </div>
+        `;
+
+            // İçeriği kapsayıcıya ekle
+            contentContainer.appendChild(label);
+        });
+
+        // İçerik kapsayıcıyı ana kapsayıcıya ekle
+        container.appendChild(contentContainer);
+    });
+
+
+    // Write HTML Template Finish
+
+
+    // Hover Show Content
+
+
+    const stepSixSummaries = document.querySelectorAll('[data-custom="summary"]');
+    const itemRight = document.querySelectorAll('.addon-box-item-right');
+
+// Her bir elemana click event listener ekleyin
+    itemRight.forEach(stepSixSummary => {
+        stepSixSummary.addEventListener('click', function(event) {
+            // Olayın yayılmasını önleyin
+            event.stopPropagation();
+
+            // Tıklanan öğe içinde .addon-box-item-summary sınıfına sahip özet öğeyi bulun
+            const summary = stepSixSummary.querySelector('.addon-box-item-summary');
+            if (summary) {
+                // d-none sınıfını göster/gizle
+                summary.classList.toggle('d-none');
+                console.log(summary);
+            }
+        });
+    });
+
+    document.querySelectorAll('.addon-box-item').forEach(item => {
+        const addonImage = document.querySelector('.addon-hover-image');
+        const images = {
+            one: 'https://packiro.com/_next/image?url=https%3A%2F%2Fpackiro-content-prod.s3.eu-central-1.amazonaws.com%2Faddons%2Fadd-ons-zipper-packiro.png&w=500&q=70',
+            two: 'https://packiro.com/_next/image?url=https%3A%2F%2Fpackiro-content-prod.s3.eu-central-1.amazonaws.com%2Faddons%2Fadd-ons-valve-packiro.png&w=500&q=70',
+            tree: 'https://packiro.com/_next/image?url=https%3A%2F%2Fpackiro-content-prod.s3.eu-central-1.amazonaws.com%2Faddons%2Fadd-ons-fsc-seal-en-packiro.png&w=500&q=70',
+        };
+        const contentElement = document.querySelector('.addon-hover-content');
+        const content = {
+            one: {
+                title: 'Zipper',
+                text: 'The pocket zipper is located only on the front of the packaging. This allows you to open the pouch especially wide and filling becomes a breeze.'
+            },
+            two: {
+                title: 'Aroma valve',
+                text: 'An aroma valve allows CO2 to escape while preventing air from entering. Your contents remain protected without the packaging inflating or bursting. An absolute must for coffee packaging!'
+            },
+            tree: {
+                title: 'FSC-certification',
+                text: 'Our paper comes exclusively from FSC®-certified forest regions. With the seal of the Forest Stewardship Council® organisation, the sustainability of your packaging is directly visible to your customers! You can print the seal on your pouches in portrait or landscape format.'
+            }
+        };
+
+        item.addEventListener('mouseover', function() {
+            const id = this.id;
+            if (images[id]) {
+                // Yeni resmi eklemeden önce mevcut resmi kaldır
+                addonImage.innerHTML = '';
+
+                const img = document.createElement('img');
+                img.src = images[id];
+                img.alt = id;
+
+                // Resmi ekle ve zoom efektini tetiklemek için 'show' sınıfını ekle
+                addonImage.appendChild(img);
+                setTimeout(() => {
+                    img.classList.add('show');
+                }, 50); // Biraz gecikme efekti düzgün göstermeyi sağlar
+            }
+
+            if (content[id]) {
+                contentElement.innerHTML = '';
+                const div = document.createElement('div');
+                const styledDiv = document.createElement('div');
+                styledDiv.classList.add('addon-hover-content-title');
+                const hr = document.createElement('hr');
+                const p = document.createElement('p');
+                styledDiv.innerHTML = content[id].title;
+                p.innerHTML = content[id].text;
+                div.appendChild(styledDiv);
+                div.appendChild(hr);
+                div.appendChild(p);
+                contentElement.appendChild(div);
+
+
+            }
+        });
+
+
+
+        item.addEventListener('click', function(e) {
+
+            // Mevcut seçili durumu kaldırın
+            document.querySelectorAll('.addon-box-item').forEach(el => el.classList.remove('selected'));
+
+            // Tıklanan elemana 'selected' sınıfını ekleyin
+            this.classList.add('selected');
+
+
+            const ripple = document.createElement('span');
+            ripple.classList.add('ripple');
+
+            const rect = item.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            ripple.style.width = ripple.style.height = `${size * 2}px`;
+            ripple.style.left = `${e.clientX - rect.left - size}px`;
+            ripple.style.top = `${e.clientY - rect.top - size}px`;
+
+            // Ripple'ı kutuya ekle
+            item.appendChild(ripple);
+
+            // Ripple animasyonu bittikten sonra elementi kaldır
+            ripple.addEventListener('animationend', () => {
+                ripple.remove();
+            });
+        });
+    });
+
+    // Hover Show Content Finish
+
 
 
 });
 
 
 
+
+
+
+
+
+
 /*
-Step 6 Start
+Step 6 Finish
  */
 /*
 Step 7 Start
