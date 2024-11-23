@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // JSON verisini döngüyle HTML'ye ekle
         Object.values(stepOneData).forEach((item) => {
             const box = document.createElement("div");
-            box.className = "col-md-4 p-4"; // Bootstrap sütun sınıfları
+            box.className = "col-lg-4 col-md-12 p-4"; // Bootstrap sütun sınıfları
             box.innerHTML = `
         <div class="p-4 rounded-3 d-flex justify-content-between main-box-item gap-4 h-100">
           <div class="main-box-item-image">
@@ -668,7 +668,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // JSON verisini döngüyle işleyerek HTML'ye ekle
         Object.values(stepFiveData).forEach((item) => {
             const designBox = document.createElement('div');
-            designBox.className = 'col-md-5 design-box';
+            designBox.className = 'col-lg-5 col-md-12 mb-5 design-box';
 
             designBox.innerHTML = `
         <div class="design-box-item d-flex gap-4">
