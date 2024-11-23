@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 step.classList.add('d-none'); // Diğer adımlara 'd-none' ekle
             }
-            console.log(`Adım ${i} durumu: ${step.classList.contains('d-none') ? 'd-none' : 'visible'}`);
         });
     }
 

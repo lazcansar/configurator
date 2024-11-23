@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="331bfada-1bf5-47cb-abd4-e8e13965b056" name="Changes" comment="Step-8 Design">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataView.js" beforeDir="false" afterPath="$PROJECT_DIR$/dataView.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -113,7 +115,7 @@
       <workItem from="1732263967174" duration="4655000" />
       <workItem from="1732272613410" duration="21829000" />
       <workItem from="1732300977852" duration="16515000" />
-      <workItem from="1732319028235" duration="8144000" />
+      <workItem from="1732319028235" duration="13087000" />
     </task>
     <task id="LOCAL-00001" summary="First Commit">
       <option name="closed" value="true" />
@@ -403,7 +405,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732356207711</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Step-8 Design">
+      <option name="closed" value="true" />
+      <created>1732356482936</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1732356482936</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

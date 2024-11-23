@@ -63,6 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
+
     document.querySelectorAll('.main-box-item').forEach(item => {
         item.addEventListener('click', function(e) {
 
@@ -89,6 +90,19 @@ document.addEventListener('DOMContentLoaded', () => {
             ripple.addEventListener('animationend', () => {
                 ripple.remove();
             });
+
+            // Value Set
+            const titleElement = item.querySelector('.main-box-item-title');
+            if (titleElement) {
+                const titleValue = titleElement.textContent.trim(); // Başlık içeriği
+                console.log(titleValue); // Konsola yazdır
+                localStorage.setItem('stepOne', titleValue);
+
+            } else {
+                console.log('Main-box-item-title bulunamadı.');
+            }
+
+
         });
     });
 
@@ -108,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // JSON verisi
     const stepTwoData = {
-        "data_one": {
+        data_one: {
             image: 'https://packiro.com/assets/heros/toni.svg',
             title: 'Transparent Toni',
             content: 'Recyclable mono plastic',
@@ -130,9 +144,9 @@ document.addEventListener('DOMContentLoaded', () => {
             summaryAddonsThree: 'Eurohole',
             summaryAddonsThreeToolsTip: 'Eurohole ToolsTip'
         },
-        "data_two": {
+        data_two: {
             image: 'https://packiro.com/assets/heros/toni.svg',
-            title: 'Transparent Toni',
+            title: 'Transparent Joe',
             content: 'Recyclable mono plastic',
             link: 'Show Details',
             featureOne: 'Oxygen',
@@ -152,9 +166,9 @@ document.addEventListener('DOMContentLoaded', () => {
             summaryAddonsThree: 'Eurohole',
             summaryAddonsThreeToolsTip: 'Eurohole ToolsTip'
         },
-        "data_three": {
+        data_three: {
             image: 'https://packiro.com/assets/heros/toni.svg',
-            title: 'Transparent Toni',
+            title: 'Transparent Jimmy',
             content: 'Recyclable mono plastic',
             link: 'Show Details',
             featureOne: 'Oxygen',
@@ -173,7 +187,11 @@ document.addEventListener('DOMContentLoaded', () => {
             summaryAddonsTwoToolsTip: 'Zipper ToolsTip',
             summaryAddonsThree: 'Eurohole',
             summaryAddonsThreeToolsTip: 'Eurohole ToolsTip'
+        },
+        data_four: {
         }
+
+
 
     };
 
@@ -181,11 +199,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const containerStepTwo = document.querySelector('.step-two-container');
 
 // JSON verisini döngüyle işleme
-    Object.values(stepTwoData).forEach((item) => {
+    Object.values(stepTwoData).forEach((item, index, array) => {
         // Yeni bir kart oluştur
         const card = document.createElement('div');
         card.className = 'main-box-card p-4 rounded-3 my-3';
-
+        if (index === array.length - 1) {
+            card.style.display = 'none'; // Son elemanı gizle
+        }
         card.innerHTML = `
     <div class="d-flex justify-content-between align-items-center">
       <div class="main-box-card-left d-flex gap-3">
@@ -254,6 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Tıklanan elemana 'selected' sınıfını ekleyin
                 this.classList.add('selected');
+                console.log(this);
 
 
                 const ripple = document.createElement('span');
@@ -272,6 +293,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 ripple.addEventListener('animationend', () => {
                     ripple.remove();
                 });
+
+
+                const stepTwoTitleElement = this.querySelector('.main-box-card-left-text-title'); // Tıklanan kartın içindeki title
+                if (stepTwoTitleElement) {
+                    const titleValue = stepTwoTitleElement.textContent.trim();
+                    console.log(titleValue); // Doğru title verisini konsola yazdır
+                    localStorage.setItem('stepTwoTitle', titleValue); // Veriyi localStorage'a kaydet
+                } else {
+                    console.warn('main-box-card-left-text-title element not found');
+                }
+
+
             });
         });
         document.addEventListener('DOMContentLoaded', () => {
@@ -303,6 +336,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+
 
 
 });
