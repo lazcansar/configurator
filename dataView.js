@@ -566,7 +566,78 @@ Step 5 Start
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+    const stepFiveData = {
+        "data_one": {
+            image: 'https://packiro.com/_next/image?url=https%3A%2F%2Fpackiro-content-prod.s3.eu-central-1.amazonaws.com%2Fgeneric-packaging%2Fflat-bottom-pouch-generic-front-design-packiro.png&w=160&q=70',
+            title: '1. Front and back side',
+            text: 'You have chosen a quantity of <strong>1000 pieces.</strong> This allows you to add <strong>up to 2 designs</strong> to your order.',
+            selectMessage: 'Set the number of designs you want:',
+            selectOptions: [
+                {
+                    value: '1',
+                    text: '1 design'
+                },
+                {
+                    value: '2',
+                    text: '2 designs'
+                },
+            ],
+        },
+        "data_two": {
+            image: 'https://packiro.com/_next/image?url=https%3A%2F%2Fpackiro-content-prod.s3.eu-central-1.amazonaws.com%2Fgeneric-packaging%2Fflat-bottom-pouch-generic-front-design-packiro.png&w=160&q=70',
+            title: '2. Sides & Bottoms',
+            text: 'You have chosen a <strong>Flat-bottom pouch</strong> and a quantity of <strong>under 2.500 pieces.</strong> You can print the bottom and sides in black or white.',
+            selectMessage: 'Set design:',
+            selectOptions: [
+                {
+                    value: '1',
+                    text: 'White'
+                },
+                {
+                    value: '2',
+                    text: 'Black'
+                },
+            ],
+        }
+    };
 
+// HTML kapsayıcı elemanını seç
+    const containerStepFive = document.querySelector('.design-container');
+
+    if (containerStepFive) {
+        // JSON verisini döngüyle işleyerek HTML'ye ekle
+        Object.values(stepFiveData).forEach((item) => {
+            const designBox = document.createElement('div');
+            designBox.className = 'col-md-5 design-box';
+
+            designBox.innerHTML = `
+        <div class="design-box-item d-flex gap-4">
+          <div class="design-box-left-item">
+            <div class="design-box-left-item-image">
+              <img src="${item.image}" class="rounded-3">
+            </div>
+          </div>
+          <div class="design-box-right-item">
+            <div class="design-box-right-item-title font-600">${item.title}</div>
+            <div class="design-box-right-item-text font-400">${item.text}</div>
+            <div class="design-box-right-ask-select mt-4 font-500">${item.selectMessage}</div>
+            <select class="form-select mt-2">
+              ${item.selectOptions
+                .map(
+                    (option) => `<option value="${option.value}">${option.text}</option>`
+                )
+                .join('')}
+            </select>
+          </div>
+        </div>
+      `;
+
+            // Kapsayıcıya ekle
+            containerStepFive.appendChild(designBox);
+        });
+    } else {
+        console.error("Kapsayıcı bulunamadı: '.design-container'");
+    }
 
 });
 
