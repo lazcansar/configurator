@@ -739,7 +739,7 @@ Step 6 Start
 Step 7 Start
  */
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () =>  {
 
     document.querySelectorAll('.choose-box-item').forEach(item => {
         const chooseContent = document.querySelector('.choose-click-content');
@@ -801,6 +801,16 @@ document.addEventListener('DOMContentLoaded', () => {
             ripple.addEventListener('animationend', () => {
                 ripple.remove();
             });
+
+            // Set Value
+            const deliveryTitle = item.querySelector('.standard-delivery');
+            if (deliveryTitle) {
+                const deliveryValue = deliveryTitle.textContent.trim();
+                console.log(deliveryValue);
+                localStorage.setItem('stepSevenDeliveryTitle', deliveryValue);
+            }
+
+
         });
     });
 
@@ -857,6 +867,28 @@ document.addEventListener('DOMContentLoaded', () => {
             ripple.addEventListener('animationend', () => {
                 ripple.remove();
             });
+
+            const designCheck = item.querySelector('.design-check');
+            const priceCheck = item.querySelector('.price');
+            if (designCheck) {
+                const designCheckValue = designCheck.textContent.trim();
+                console.log(designCheckValue);
+                localStorage.setItem('stepSevenDesignCheck', designCheckValue);
+                localStorage.removeItem('stepSevenPriceCheck');
+                if (priceCheck) {
+                    const priceCheckValue = priceCheck.textContent.trim();
+                    console.log(priceCheckValue);
+                    localStorage.setItem('stepSevenPriceCheck', priceCheckValue);
+                }else {
+                    console.warn('Price check not found');
+                }
+            }
+
+
+
+
+
+
         });
     });
 
