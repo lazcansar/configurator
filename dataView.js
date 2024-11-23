@@ -555,9 +555,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     'quantity-box-item d-flex justify-content-between align-items-center rounded-3 py-2 px-4';
 
                 box.innerHTML = `
-        <div class="quantity-box-item-list">${item.quantity}</div>
+        <div class="quantity-box-item-list quantity">${item.quantity}</div>
         <div class="quantity-box-item-list">${item.discount}</div>
-        <div class="quantity-box-item-list">${item.unitPrice}</div>
+        <div class="quantity-box-item-list unitprice">${item.unitPrice}</div>
         <div class="quantity-box-item-list">${item.totalAmount}</div>
         <div class="quantity-box-item-list">${item.numberOfDesigns}</div>
       `;
@@ -593,8 +593,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 ripple.addEventListener('animationend', () => {
                     ripple.remove();
                 });
+
+                const fourQuantity = item.querySelector('.quantity');
+                const fourunitprice = item.querySelector('.unitprice');
+                if (fourQuantity && fourunitprice) {
+                    const quantityValue = fourQuantity.textContent.trim();
+                    const unitpriceValue = fourunitprice.textContent.trim();
+                    console.log(quantityValue);
+                    console.log(unitpriceValue);
+                    localStorage.setItem('stepFourQuantity', quantityValue);
+                    localStorage.setItem('stepFourDiscount', unitpriceValue);
+                }
+
+
+
             });
         });
+
+
 
 
 
