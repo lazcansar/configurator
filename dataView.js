@@ -811,7 +811,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="addon-box-item-summary d-none">
                         ${item.options.map(option => `
                             <div class="addon-box-item-summary-item">
-                                <label class="p-3 border border-1 d-flex align-items-center rounded-3 position-relative d-block gap-3 pointer-event" for="${option.id}">
+                                <label class="p-3 border border-1 d-flex align-items-center rounded-3 position-relative d-block gap-3 pointer-event mb-2" for="${option.id}">
                                     <input type="radio" name="${item.id}-options" id="${option.id}">
                                     <div>
                                         <span class="font-600 font-size-small">${option.name}</span>
