@@ -1227,7 +1227,36 @@ function renderLocalStorageToCardBody() {
     cardBody.appendChild(ulElement); // Yeni listeyi ekle
 }
 
-// LocalStorage'ye örnek veri eklemek için (isteğe bağlı)
+function createDownloadLinkForLocalStorage() {
+    // Tüm localStorage verilerini bir nesneye dönüştür
+    const storageData = {};
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        const value = localStorage.getItem(key);
+        storageData[key] = value;
+    }
+
+    // JSON string olarak localStorage verilerini hazırla
+    const jsonData = JSON.stringify(storageData, null, 2);
+
+    // Blob oluştur ve URL'yi oluştur
+    const blob = new Blob([jsonData], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+
+    // İndirme bağlantısını oluştur
+    const downloadLink = document.createElement("a");
+    downloadLink.href = url;
+    downloadLink.download = "localStorageData.json";
+    downloadLink.textContent = "Download LocalStorage Data";
+    downloadLink.className = "btn btn-primary mt-3"; // Bootstrap kullanıyorsanız sınıf ekleyin
+
+    // Bağlantıyı sayfaya ekle
+    document.body.appendChild(downloadLink);
+}
+
+// Bağlantıyı oluştur
+createDownloadLinkForLocalStorage();
+
 
 
 // Örnek veriyi ekleyip listeyi karta ekleme
