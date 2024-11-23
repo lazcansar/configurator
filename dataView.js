@@ -473,6 +473,15 @@ document.addEventListener('DOMContentLoaded', () => {
             ripple.addEventListener('animationend', () => {
                 ripple.remove();
             });
+
+            const stepThreeSymbol = item.querySelector('.main-box-sizing-list-item-left-symbol');
+            if (stepThreeSymbol) {
+                const symbolValue = stepThreeSymbol.textContent.trim();
+                console.log(symbolValue);
+                localStorage.setItem('stepThreeSymbol', symbolValue);
+            }
+
+
         });
     });
 
