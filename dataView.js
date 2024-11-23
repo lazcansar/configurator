@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (titleElement) {
                 const titleValue = titleElement.textContent.trim(); // Başlık içeriği
                 console.log(titleValue); // Konsola yazdır
-                localStorage.setItem('stepOne', titleValue);
+                localStorage.setItem('Packing Form', titleValue);
 
             } else {
                 console.log('Main-box-item-title bulunamadı.');
@@ -299,7 +299,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (stepTwoTitleElement) {
                     const titleValue = stepTwoTitleElement.textContent.trim();
                     console.log(titleValue); // Doğru title verisini konsola yazdır
-                    localStorage.setItem('stepTwoTitle', titleValue); // Veriyi localStorage'a kaydet
+                    localStorage.setItem('Material', titleValue); // Veriyi localStorage'a kaydet
                 } else {
                     console.warn('main-box-card-left-text-title element not found');
                 }
@@ -478,7 +478,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (stepThreeSymbol) {
                 const symbolValue = stepThreeSymbol.textContent.trim();
                 console.log(symbolValue);
-                localStorage.setItem('stepThreeSymbol', symbolValue);
+                localStorage.setItem('Size', symbolValue);
             }
 
 
@@ -601,8 +601,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     const unitpriceValue = fourunitprice.textContent.trim();
                     console.log(quantityValue);
                     console.log(unitpriceValue);
-                    localStorage.setItem('stepFourQuantity', quantityValue);
-                    localStorage.setItem('stepFourDiscount', unitpriceValue);
+                    localStorage.setItem('Quantity', quantityValue);
+                    localStorage.setItem('Quantity Discount', unitpriceValue);
                 }
 
 
@@ -700,7 +700,7 @@ document.addEventListener('DOMContentLoaded', () => {
                select.addEventListener('change', function(e) {
                    const selectedOption = e.target.options[event.target.selectedIndex].text;
                    console.log(`Select ${index + 1}: ${selectedOption}`); //
-                   const storageKey = `stepFive_${index + 1}`;
+                   const storageKey = `Designs ${index + 1}`;
                    localStorage.setItem(storageKey, selectedOption);
                })
             });
@@ -847,10 +847,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     const titleValue = stepSixTitle.textContent.trim();
                     if (this.checked) {
                         console.log(`Checkbox Checked: ${titleValue}`);
-                        localStorage.setItem(this.id, titleValue);
+                        localStorage.setItem(`Add-ons ${this.id}`, titleValue);
                     } else {
                         console.log(`Checkbox Unchecked: ${titleValue}`);
-                        localStorage.removeItem(this.id);
+                        localStorage.removeItem(`Add-ons ${this.id}`);
                     }
                 } else {
                     console.warn('addon-box-item-right-title element not found in the checkbox\'s parent item.');
@@ -1001,12 +1001,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-
-
-
-
-
 /*
 Step 6 Finish
  */
@@ -1082,7 +1076,7 @@ document.addEventListener('DOMContentLoaded', () =>  {
             if (deliveryTitle) {
                 const deliveryValue = deliveryTitle.textContent.trim();
                 console.log(deliveryValue);
-                localStorage.setItem('stepSevenDeliveryTitle', deliveryValue);
+                localStorage.setItem('Delivery', deliveryValue);
             }
 
 
@@ -1148,12 +1142,12 @@ document.addEventListener('DOMContentLoaded', () =>  {
             if (designCheck) {
                 const designCheckValue = designCheck.textContent.trim();
                 console.log(designCheckValue);
-                localStorage.setItem('stepSevenDesignCheck', designCheckValue);
-                localStorage.removeItem('stepSevenPriceCheck');
+                localStorage.setItem('Designs', designCheckValue);
+                localStorage.removeItem('Designs Price');
                 if (priceCheck) {
                     const priceCheckValue = priceCheck.textContent.trim();
                     console.log(priceCheckValue);
-                    localStorage.setItem('stepSevenPriceCheck', priceCheckValue);
+                    localStorage.setItem('Designs Price', priceCheckValue);
                 }else {
                     console.warn('Price check not found');
                 }
@@ -1172,4 +1166,74 @@ document.addEventListener('DOMContentLoaded', () =>  {
 
 /*
 Step 7 Finish
+ */
+
+/*
+Step 8 Start
+ */
+
+function renderLocalStorageToCardBody() {
+    // Mevcut card-body elementini seç
+    const cardBody = document.querySelector(".card-body.custom-card");
+
+    if (!cardBody) return; // Eğer card-body bulunamazsa işlem yapma
+
+    // Liste elemanını oluştur
+    const ulElement = document.createElement("ul");
+    ulElement.className = "list-group list-group-flush";
+
+    // LocalStorage öğelerini döngüyle işleyerek liste oluştur
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i); // LocalStorage'deki anahtar
+        const value = localStorage.getItem(key); // LocalStorage'deki değer
+
+        // Liste öğesi oluştur
+        const liElement = document.createElement("li");
+        liElement.className = "list-group-item d-flex align-items-center";
+
+        // Başlık (anahtar)
+        const titleDiv = document.createElement("div");
+        titleDiv.className = "list-group-item-title";
+        titleDiv.textContent = `${key}:`;
+
+        // İçerik (değer)
+        const contentDiv = document.createElement("div");
+        contentDiv.className = "list-group-item-content";
+        contentDiv.textContent = value;
+
+        // Fiyat kısmı (örnek için boş bırakıyoruz)
+        const priceDiv = document.createElement("div");
+        priceDiv.className = "list-group-item-price text-end";
+
+        // İşlem ikonu
+        const actionDiv = document.createElement("div");
+        actionDiv.className = "list-group-item-action text-end";
+        const editIcon = document.createElement("i");
+        editIcon.className = "bi bi-pencil rounded-3";
+        actionDiv.appendChild(editIcon);
+
+        // Liste öğesine alt elemanları ekle
+        liElement.appendChild(titleDiv);
+        liElement.appendChild(contentDiv);
+        liElement.appendChild(priceDiv);
+        liElement.appendChild(actionDiv);
+
+        // Ana listeye ekle
+        ulElement.appendChild(liElement);
+    }
+
+    // Mevcut card-body içeriğini temizleyip yeni listeyi ekle
+    cardBody.innerHTML = ""; // Eski içeriği temizle
+    cardBody.appendChild(ulElement); // Yeni listeyi ekle
+}
+
+// LocalStorage'ye örnek veri eklemek için (isteğe bağlı)
+
+
+// Örnek veriyi ekleyip listeyi karta ekleme
+renderLocalStorageToCardBody();
+
+
+/*
+Step 8 Finish
  */
