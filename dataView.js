@@ -694,7 +694,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Kapsayıcıya ekle
             containerStepFive.appendChild(designBox);
+
+            const selectElements = containerStepFive.querySelectorAll('select');
+            selectElements.forEach((select, index) => {
+               select.addEventListener('change', function(e) {
+                   const selectedOption = e.target.options[event.target.selectedIndex].text;
+                   console.log(`Select ${index + 1}: ${selectedOption}`); //
+                   const storageKey = `stepFive_${index + 1}`;
+                   localStorage.setItem(storageKey, selectedOption);
+               })
+            });
+
+
+
+
+
+
         });
+
+
     }
 
 });
