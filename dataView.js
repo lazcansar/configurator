@@ -635,18 +635,156 @@ document.addEventListener('DOMContentLoaded', () => {
             // Kapsayıcıya ekle
             containerStepFive.appendChild(designBox);
         });
-    } else {
-        console.error("Kapsayıcı bulunamadı: '.design-container'");
     }
 
 });
-
-
-
 
 /*
 Step 5 Finish
  */
 
+/*
+Step 6 Start
+ */
+
+document.addEventListener('DOMContentLoaded', () => {
 
 
+});
+
+
+
+/*
+Step 6 Start
+ */
+/*
+Step 7 Start
+ */
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    document.querySelectorAll('.choose-box-item').forEach(item => {
+        const chooseContent = document.querySelector('.choose-click-content');
+        const chooseText = {
+            one: {
+                title: 'Standard',
+                text: 'The standard production and delivery time is 4 to 6 weeks (stand-up pouches and flat pouches) or 4 to 7 weeks (flat bottom pouches) after approval of the designs.\n' +
+                    '\n' +
+                    'Expected delivery date: 3. January'
+            },
+            two: {
+                title: 'Design check',
+                text: 'Our automatic design check shows you directly after uploading your design whether it is printable or whether you should still make adjustments. You get detailed feedback on everything from colour space to image sizes.'
+            },
+            tree: {
+                title: 'Design check',
+                text: 'When you book the professional check, you put the detailed check in the hands of our experienced design team: you get feedback, for example, on whether the bila-white layer matches the artwork layer and whether the special effect you want is achieved. We also make sure that no important information is located near the seal area.'
+            }
+
+        }
+
+        item.addEventListener('click', function(e) {
+            const id = this.id;
+
+            if (chooseText[id]) {
+                chooseContent.innerHTML = '';
+                const div = document.createElement('div');
+                const styledDiv = document.createElement('div');
+                styledDiv.classList.add('addon-hover-content-title');
+                const hr = document.createElement('hr');
+                const p = document.createElement('p');
+                styledDiv.innerHTML = chooseText[id].title;
+                p.innerHTML = chooseText[id].text;
+                div.appendChild(styledDiv);
+                div.appendChild(hr);
+                div.appendChild(p);
+                chooseContent.appendChild(div);
+            }
+
+
+
+
+
+            document.querySelectorAll('.choose-box-item').forEach(el => el.classList.remove('selected'));
+
+            this.classList.add('selected');
+
+            const ripple = document.createElement('span');
+            ripple.classList.add('ripple');
+
+            const rect = item.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            ripple.style.width = ripple.style.height = `${size * 2}px`;
+            ripple.style.left = `${e.clientX - rect.left - size}px`;
+            ripple.style.top = `${e.clientY - rect.top - size}px`;
+
+            item.appendChild(ripple);
+
+            ripple.addEventListener('animationend', () => {
+                ripple.remove();
+            });
+        });
+    });
+
+
+    document.querySelectorAll('.choose-box-item-design').forEach(item => {
+        const chooseContent = document.querySelector('.choose-click-content');
+        const chooseText = {
+            two: {
+                title: 'Design check',
+                text: 'Our automatic design check shows you directly after uploading your design whether it is printable or whether you should still make adjustments. You get detailed feedback on everything from colour space to image sizes.'
+            },
+            tree: {
+                title: 'Design check',
+                text: 'When you book the professional check, you put the detailed check in the hands of our experienced design team: you get feedback, for example, on whether the bila-white layer matches the artwork layer and whether the special effect you want is achieved. We also make sure that no important information is located near the seal area.'
+            }
+
+        }
+
+
+        item.addEventListener('click', function(e) {
+            const id = this.id;
+
+            if (chooseText[id]) {
+                chooseContent.innerHTML = '';
+                const div = document.createElement('div');
+                const styledDiv = document.createElement('div');
+                styledDiv.classList.add('addon-hover-content-title');
+                const hr = document.createElement('hr');
+                const p = document.createElement('p');
+                styledDiv.innerHTML = chooseText[id].title;
+                p.innerHTML = chooseText[id].text;
+                div.appendChild(styledDiv);
+                div.appendChild(hr);
+                div.appendChild(p);
+                chooseContent.appendChild(div);
+            }
+
+
+            document.querySelectorAll('.choose-box-item-design').forEach(el => el.classList.remove('selected'));
+
+            this.classList.add('selected');
+
+            const ripple = document.createElement('span');
+            ripple.classList.add('ripple');
+
+            const rect = item.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            ripple.style.width = ripple.style.height = `${size * 2}px`;
+            ripple.style.left = `${e.clientX - rect.left - size}px`;
+            ripple.style.top = `${e.clientY - rect.top - size}px`;
+
+            item.appendChild(ripple);
+
+            ripple.addEventListener('animationend', () => {
+                ripple.remove();
+            });
+        });
+    });
+
+});
+
+
+/*
+Step 7 Finish
+ */

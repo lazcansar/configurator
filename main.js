@@ -3,6 +3,63 @@ import './public/js/bootstrap.bundle.min.js'
 import './style.scss'
 import './dataView.js'
 
+document.addEventListener('DOMContentLoaded', () => {
+    const steps = document.querySelectorAll('.step'); // Tüm adımları seç
+    let currentStep = 0; // Başlangıç adımı
+
+    // Adım Gösterme Fonksiyonu
+    function showStep(index) {
+        steps.forEach((step, i) => {
+            if (i === index) {
+                step.classList.remove('d-none'); // Geçerli adımdan 'd-none' sınıfını kaldır
+            } else {
+                step.classList.add('d-none'); // Diğer adımlara 'd-none' ekle
+            }
+            console.log(`Adım ${i} durumu: ${step.classList.contains('d-none') ? 'd-none' : 'visible'}`);
+        });
+    }
+
+    // Adım içindeki butonları dinamik olarak işle
+    function attachButtonListeners() {
+        steps.forEach((step, index) => {
+            const btnNext = step.querySelector('.btn-next'); // Bu adımdaki ileri butonu
+            const btnBack = step.querySelector('.btn-back'); // Bu adımdaki geri butonu
+
+            if (btnNext) {
+                btnNext.addEventListener('click', () => {
+                    if (currentStep < steps.length - 1) {
+                        currentStep++;
+                        console.log(`Sonraki adım: ${currentStep}`);
+                        showStep(currentStep);
+                    } else {
+                        console.warn("Son adımdayız.");
+                    }
+                });
+            }
+
+            if (btnBack) {
+                btnBack.addEventListener('click', () => {
+                    if (currentStep > 0) {
+                        currentStep--;
+                        console.log(`Önceki adım: ${currentStep}`);
+                        showStep(currentStep);
+                    } else {
+                        console.warn("İlk adımdayız.");
+                    }
+                });
+            }
+        });
+    }
+
+    // Başlangıçta ilk adımı göster
+    showStep(currentStep);
+
+    // Tüm adımların butonlarını dinamik olarak işleme al
+    attachButtonListeners();
+});
+
+
+
 
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
 const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
@@ -304,123 +361,3 @@ document.querySelectorAll('.addon-box-item').forEach(item => {
     });
 });
 
-/*
-Step 7
- */
-document.querySelectorAll('.choose-box-item').forEach(item => {
-    const chooseContent = document.querySelector('.choose-click-content');
-    const chooseText = {
-        one: {
-            title: 'Standard',
-            text: 'The standard production and delivery time is 4 to 6 weeks (stand-up pouches and flat pouches) or 4 to 7 weeks (flat bottom pouches) after approval of the designs.\n' +
-                '\n' +
-                'Expected delivery date: 3. January'
-        },
-        two: {
-            title: 'Design check',
-            text: 'Our automatic design check shows you directly after uploading your design whether it is printable or whether you should still make adjustments. You get detailed feedback on everything from colour space to image sizes.'
-        },
-        tree: {
-            title: 'Design check',
-            text: 'When you book the professional check, you put the detailed check in the hands of our experienced design team: you get feedback, for example, on whether the bila-white layer matches the artwork layer and whether the special effect you want is achieved. We also make sure that no important information is located near the seal area.'
-        }
-
-    }
-
-    item.addEventListener('click', function(e) {
-        const id = this.id;
-
-        if (chooseText[id]) {
-            chooseContent.innerHTML = '';
-            const div = document.createElement('div');
-            const styledDiv = document.createElement('div');
-            styledDiv.classList.add('addon-hover-content-title');
-            const hr = document.createElement('hr');
-            const p = document.createElement('p');
-            styledDiv.innerHTML = chooseText[id].title;
-            p.innerHTML = chooseText[id].text;
-            div.appendChild(styledDiv);
-            div.appendChild(hr);
-            div.appendChild(p);
-            chooseContent.appendChild(div);
-        }
-
-
-
-
-
-        document.querySelectorAll('.choose-box-item').forEach(el => el.classList.remove('selected'));
-
-        this.classList.add('selected');
-
-        const ripple = document.createElement('span');
-        ripple.classList.add('ripple');
-
-        const rect = item.getBoundingClientRect();
-        const size = Math.max(rect.width, rect.height);
-        ripple.style.width = ripple.style.height = `${size * 2}px`;
-        ripple.style.left = `${e.clientX - rect.left - size}px`;
-        ripple.style.top = `${e.clientY - rect.top - size}px`;
-
-        item.appendChild(ripple);
-
-        ripple.addEventListener('animationend', () => {
-            ripple.remove();
-        });
-    });
-});
-
-document.querySelectorAll('.choose-box-item-design').forEach(item => {
-    const chooseContent = document.querySelector('.choose-click-content');
-    const chooseText = {
-        two: {
-            title: 'Design check',
-            text: 'Our automatic design check shows you directly after uploading your design whether it is printable or whether you should still make adjustments. You get detailed feedback on everything from colour space to image sizes.'
-        },
-        tree: {
-            title: 'Design check',
-            text: 'When you book the professional check, you put the detailed check in the hands of our experienced design team: you get feedback, for example, on whether the bila-white layer matches the artwork layer and whether the special effect you want is achieved. We also make sure that no important information is located near the seal area.'
-        }
-
-    }
-
-
-    item.addEventListener('click', function(e) {
-        const id = this.id;
-
-        if (chooseText[id]) {
-            chooseContent.innerHTML = '';
-            const div = document.createElement('div');
-            const styledDiv = document.createElement('div');
-            styledDiv.classList.add('addon-hover-content-title');
-            const hr = document.createElement('hr');
-            const p = document.createElement('p');
-            styledDiv.innerHTML = chooseText[id].title;
-            p.innerHTML = chooseText[id].text;
-            div.appendChild(styledDiv);
-            div.appendChild(hr);
-            div.appendChild(p);
-            chooseContent.appendChild(div);
-        }
-
-
-        document.querySelectorAll('.choose-box-item-design').forEach(el => el.classList.remove('selected'));
-
-        this.classList.add('selected');
-
-        const ripple = document.createElement('span');
-        ripple.classList.add('ripple');
-
-        const rect = item.getBoundingClientRect();
-        const size = Math.max(rect.width, rect.height);
-        ripple.style.width = ripple.style.height = `${size * 2}px`;
-        ripple.style.left = `${e.clientX - rect.left - size}px`;
-        ripple.style.top = `${e.clientY - rect.top - size}px`;
-
-        item.appendChild(ripple);
-
-        ripple.addEventListener('animationend', () => {
-            ripple.remove();
-        });
-    });
-});
